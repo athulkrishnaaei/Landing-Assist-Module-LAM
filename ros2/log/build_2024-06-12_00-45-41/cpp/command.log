@@ -1,0 +1,2 @@
+Invoking command in '/home/athul/uav/Landing-Assist-Module-LAM/ros2/build/cpp': /usr/bin/cmake --build /home/athul/uav/Landing-Assist-Module-LAM/ros2/build/cpp -- -j6 -l6
+Invoked command in '/home/athul/uav/Landing-Assist-Module-LAM/ros2/build/cpp' returned '0': /usr/bin/cmake --build /home/athul/uav/Landing-Assist-Module-LAM/ros2/build/cpp -- -j6 -l6

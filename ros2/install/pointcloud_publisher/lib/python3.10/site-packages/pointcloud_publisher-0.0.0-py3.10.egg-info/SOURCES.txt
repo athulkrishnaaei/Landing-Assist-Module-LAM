@@ -9,9 +9,11 @@ setup.py
 ../../build/pointcloud_publisher/pointcloud_publisher.egg-info/top_level.txt
 ../../build/pointcloud_publisher/pointcloud_publisher.egg-info/zip-safe
 pointcloud_publisher/__init__.py
+pointcloud_publisher/combined_plane_detection.py
 pointcloud_publisher/planar_patch_plane_detection.py
 pointcloud_publisher/pointcloud_publisher.py
 pointcloud_publisher/pointcloud_subscriber.py
+pointcloud_publisher/prosac_plane_detection.py
 pointcloud_publisher/ransac_plane_detection.py
 pointcloud_publisher/setup.py
 resource/pointcloud_publisher
