@@ -16,12 +16,13 @@ class PlaneDetectionNode(Node):
             self.pointcloud_callback,
             10)
         self.publisher_ = self.create_publisher(PointCloud2, 'detected_planes', 10)
-        self.subscription  # prevent unused variable warning
+        self.subscription  
 
     def pointcloud_callback(self, msg):
         self.get_logger().info('Received point cloud data')
         points = self.pointcloud2_to_numpy(msg)
         o3d_cloud = self.numpy_to_open3d(points)
+        o3d_cloud= o3d_cloud.voxel_down_sample(0.09)
         plane_model, inliers = o3d_cloud.segment_plane(distance_threshold=0.01,
                                                        ransac_n=3,
                                                        num_iterations=1000)
