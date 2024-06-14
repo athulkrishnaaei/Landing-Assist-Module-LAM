@@ -26,6 +26,7 @@ setup(
             'planar_patch_plane_detection =pointcloud_publisher.planar_patch_plane_detection:main',
             'combined_plane_detection = pointcloud_publisher.combined_plane_detection:main',
             'prosac_plane_detection = pointcloud_publisher.prosac_plane_detection:main',
+            'prosac_v2_plane_detection = pointcloud_publisher.prosac_v2_plane_detection:main',
         ],
     },
 )

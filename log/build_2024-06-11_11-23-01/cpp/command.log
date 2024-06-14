@@ -1,0 +1,4 @@
+Invoking command in '/home/athul/uav/Landing-Assist-Module-LAM/build/cpp': /usr/bin/cmake /home/athul/uav/Landing-Assist-Module-LAM/ros2/src/cpp -DCMAKE_INSTALL_PREFIX=/home/athul/uav/Landing-Assist-Module-LAM/install/cpp
+Invoked command in '/home/athul/uav/Landing-Assist-Module-LAM/build/cpp' returned '0': /usr/bin/cmake /home/athul/uav/Landing-Assist-Module-LAM/ros2/src/cpp -DCMAKE_INSTALL_PREFIX=/home/athul/uav/Landing-Assist-Module-LAM/install/cpp
+Invoking command in '/home/athul/uav/Landing-Assist-Module-LAM/build/cpp': /usr/bin/cmake --build /home/athul/uav/Landing-Assist-Module-LAM/build/cpp -- -j6 -l6
+Invoked command in '/home/athul/uav/Landing-Assist-Module-LAM/build/cpp' returned '0': /usr/bin/cmake --build /home/athul/uav/Landing-Assist-Module-LAM/build/cpp -- -j6 -l6
