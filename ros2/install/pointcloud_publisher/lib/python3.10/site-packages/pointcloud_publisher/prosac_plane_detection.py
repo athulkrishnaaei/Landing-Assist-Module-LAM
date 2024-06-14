@@ -104,57 +104,35 @@ class PlaneDetectionNode(Node):
         d = -np.dot(normal, centroid)
         return np.append(normal, d)
 
-    # def segment_plane_PROSAC(self,pcd, quality_scores_normalized,ransac_n=3, num_iterations=1000, distance_threshold=0.01):
-    #     points = np.asarray(pcd.points)
-    #     num_points = len(points)
+    def segment_plane_PROSAC(self,pcd, quality_scores_normalized,ransac_n=3, num_iterations=1000, distance_threshold=0.01):
+        points = np.asarray(pcd.points)
+        num_points = len(points)
         
-    #     # PROSAC implementation
-    #     best_model = None
-    #     best_inliers = []
-    #     best_inlier_count = 0
-    
-    #     for i in range(num_iterations):
-    #         # Progressive sampling,this step differentiate it from RANSAC
-    #         sample_indices = np.random.choice(num_points, ransac_n, replace=False, p=quality_scores_normalized)
-    #         sample_points = points[sample_indices]
-        
-           
-    #         plane_model = self.fit_plane(sample_points)
-        
-    #         # Calculate distances to the plane for all points
-    #         distances_to_plane = np.abs(np.dot(points, plane_model[:3]) + plane_model[3])
-        
-    #         # Count inliers based on the distance threshold
-    #         inliers = np.where(distances_to_plane < distance_threshold)[0]
-        
-    #         # Update the best model if we found more inliers
-    #         if len(inliers) > best_inlier_count:
-    #             best_model = plane_model
-    #             best_inliers = inliers
-    #             best_inlier_count = len(inliers)
-    
-    #     return best_model, best_inliers
-    def segment_plane_PROSAC(self,pcd, quality_scores, ransac_n=3, max_iterations=1000, threshold=0.01):
-        num_points = len(pcd.points)
-
+        # PROSAC implementation
         best_model = None
         best_inliers = []
+        best_inlier_count = 0
+    
+        for i in range(num_iterations):
+            # Progressive sampling,this step differentiate it from RANSAC
+            sample_indices = np.random.choice(num_points, ransac_n, replace=False, p=quality_scores_normalized)
+            sample_points = points[sample_indices]
+        
+           
+            plane_model = self.fit_plane(sample_points)
+        
+            distances_to_plane = np.abs(np.dot(points, plane_model[:3]) + plane_model[3])
 
-        for _ in range(max_iterations):
-            sample_indices = np.random.choice(num_points, ransac_n, replace=False, p=quality_scores)
-            sampled_points = np.asarray(pcd.points)[sample_indices]
-
-            # Use Open3D's built-in RANSAC for plane segmentation
-            plane_model, inliers = pcd.segment_plane(distance_threshold=threshold, ransac_n=ransac_n, num_iterations=max_iterations)
-
-            if len(inliers) > len(best_inliers):
+            inliers = np.where(distances_to_plane < distance_threshold)[0]
+        
+            # Update the best model if we found more inliers
+            if len(inliers) > best_inlier_count:
                 best_model = plane_model
                 best_inliers = inliers
-
+                best_inlier_count = len(inliers)
+    
         return best_model, best_inliers
-
-
-
+   
     def pointcloud2_to_numpy(self, cloud_msg):
         fmt = 'fff'  # format for unpacking
         dtype = np.dtype([('x', np.float32), ('y', np.float32), ('z', np.float32)])
