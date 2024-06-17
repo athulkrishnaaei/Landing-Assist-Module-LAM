@@ -1,0 +1,34 @@
+[0.014s] Invoking command in '/home/athul/Landing-Assist-Module-LAM/ros2/build/cpp': /usr/bin/cmake /home/athul/Landing-Assist-Module-LAM/ros2/src/cpp -DCMAKE_INSTALL_PREFIX=/home/athul/Landing-Assist-Module-LAM/ros2/install/cpp
+[0.020s] CMake Warning (dev) in CMakeLists.txt:
+[0.020s]   No project() command is present.  The top-level CMakeLists.txt file must
+[0.020s]   contain a literal, direct call to the project() command.  Add a line of
+[0.020s]   code such as
+[0.020s] 
+[0.020s]     project(ProjectName)
+[0.021s] 
+[0.021s]   near the top of the file, but after cmake_minimum_required().
+[0.021s] 
+[0.021s]   CMake is pretending there is a "project(Project)" command on the first
+[0.021s]   line.
+[0.021s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[0.021s] 
+[0.065s] -- The C compiler identification is GNU 9.4.0
+[0.122s] -- The CXX compiler identification is GNU 9.4.0
+[0.126s] -- Check for working C compiler: /usr/bin/cc
+[0.193s] -- Check for working C compiler: /usr/bin/cc -- works
+[0.193s] -- Detecting C compiler ABI info
+[0.264s] -- Detecting C compiler ABI info - done
+[0.277s] -- Detecting C compile features
+[0.278s] -- Detecting C compile features - done
+[0.280s] -- Check for working CXX compiler: /usr/bin/c++
+[0.360s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[0.361s] -- Detecting CXX compiler ABI info
+[0.448s] -- Detecting CXX compiler ABI info - done
+[0.460s] -- Detecting CXX compile features
+[0.460s] -- Detecting CXX compile features - done
+[0.461s] -- Configuring done
+[0.461s] -- Generating done
+[0.462s] -- Build files have been written to: /home/athul/Landing-Assist-Module-LAM/ros2/build/cpp
+[0.465s] Invoked command in '/home/athul/Landing-Assist-Module-LAM/ros2/build/cpp' returned '0': /usr/bin/cmake /home/athul/Landing-Assist-Module-LAM/ros2/src/cpp -DCMAKE_INSTALL_PREFIX=/home/athul/Landing-Assist-Module-LAM/ros2/install/cpp
+[0.466s] Invoking command in '/home/athul/Landing-Assist-Module-LAM/ros2/build/cpp': /usr/bin/cmake --build /home/athul/Landing-Assist-Module-LAM/ros2/build/cpp -- -j16 -l16
+[0.506s] Invoked command in '/home/athul/Landing-Assist-Module-LAM/ros2/build/cpp' returned '0': /usr/bin/cmake --build /home/athul/Landing-Assist-Module-LAM/ros2/build/cpp -- -j16 -l16

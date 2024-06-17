@@ -1,0 +1,9 @@
+[console_scripts]
+combined_plane_detection = pointcloud_publisher.combined_plane_detection:main
+planar_patch_plane_detection = pointcloud_publisher.planar_patch_plane_detection:main
+pointcloud_publisher = pointcloud_publisher.pointcloud_publisher:main
+pointcloud_subscriber = pointcloud_publisher.pointcloud_subscriber:main
+prosac_plane_detection = pointcloud_publisher.prosac_plane_detection:main
+prosac_v2_plane_detection = pointcloud_publisher.prosac_v2_plane_detection:main
+ransac_plane_detection = pointcloud_publisher.ransac_plane_detection:main
+
