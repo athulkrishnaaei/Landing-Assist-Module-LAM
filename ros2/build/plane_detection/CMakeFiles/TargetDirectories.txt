@@ -1,9 +1,0 @@
-/home/athul/uav/Landing-Assist-Module-LAM/ros2/build/plane_detection/CMakeFiles/uninstall.dir
-/home/athul/uav/Landing-Assist-Module-LAM/ros2/build/plane_detection/CMakeFiles/plane_detection_uninstall.dir
-/home/athul/uav/Landing-Assist-Module-LAM/ros2/build/plane_detection/CMakeFiles/test.dir
-/home/athul/uav/Landing-Assist-Module-LAM/ros2/build/plane_detection/CMakeFiles/edit_cache.dir
-/home/athul/uav/Landing-Assist-Module-LAM/ros2/build/plane_detection/CMakeFiles/rebuild_cache.dir
-/home/athul/uav/Landing-Assist-Module-LAM/ros2/build/plane_detection/CMakeFiles/list_install_components.dir
-/home/athul/uav/Landing-Assist-Module-LAM/ros2/build/plane_detection/CMakeFiles/install.dir
-/home/athul/uav/Landing-Assist-Module-LAM/ros2/build/plane_detection/CMakeFiles/install/local.dir
-/home/athul/uav/Landing-Assist-Module-LAM/ros2/build/plane_detection/CMakeFiles/install/strip.dir
