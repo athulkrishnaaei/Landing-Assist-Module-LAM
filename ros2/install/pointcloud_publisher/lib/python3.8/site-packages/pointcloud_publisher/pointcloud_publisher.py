@@ -14,9 +14,7 @@ class PointCloudPublisher(Node):
         timer_period = 1.0  # seconds
         self.timer = self.create_timer(timer_period, self.timer_callback)
         self.pointcloud_data = self.load_pointcloud_file('/home/athul/Desktop/cloud.pcd')
-        # self.pointcloud_data = self.load_pointcloud_file('/home/athul/Desktop/pcd_files/lamppost.pcd')
-
-
+        
     def load_pointcloud_file(self, file_path):
         # Load the point cloud data
         pcd = o3d.io.read_point_cloud(file_path)
