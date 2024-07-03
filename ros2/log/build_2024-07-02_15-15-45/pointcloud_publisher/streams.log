@@ -1,0 +1,34 @@
+[0.614s] Invoking command in '/home/athul/Landing-Assist-Module-LAM/ros2/src/pointcloud_publisher': PYTHONPATH=/home/athul/Landing-Assist-Module-LAM/ros2/build/pointcloud_publisher/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/athul/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/pointcloud_publisher build --build-base /home/athul/Landing-Assist-Module-LAM/ros2/build/pointcloud_publisher/build install --record /home/athul/Landing-Assist-Module-LAM/ros2/build/pointcloud_publisher/install.log --single-version-externally-managed install_data
+[0.790s] running egg_info
+[0.790s] writing ../../build/pointcloud_publisher/pointcloud_publisher.egg-info/PKG-INFO
+[0.790s] writing dependency_links to ../../build/pointcloud_publisher/pointcloud_publisher.egg-info/dependency_links.txt
+[0.790s] writing entry points to ../../build/pointcloud_publisher/pointcloud_publisher.egg-info/entry_points.txt
+[0.791s] writing requirements to ../../build/pointcloud_publisher/pointcloud_publisher.egg-info/requires.txt
+[0.791s] writing top-level names to ../../build/pointcloud_publisher/pointcloud_publisher.egg-info/top_level.txt
+[0.814s] reading manifest file '../../build/pointcloud_publisher/pointcloud_publisher.egg-info/SOURCES.txt'
+[0.814s] writing manifest file '../../build/pointcloud_publisher/pointcloud_publisher.egg-info/SOURCES.txt'
+[0.815s] running build
+[0.815s] running build_py
+[0.815s] copying pointcloud_publisher/prosac_plane_detection.py -> /home/athul/Landing-Assist-Module-LAM/ros2/build/pointcloud_publisher/build/lib/pointcloud_publisher
+[0.815s] running install
+[0.816s] running install_lib
+[0.817s] copying /home/athul/Landing-Assist-Module-LAM/ros2/build/pointcloud_publisher/build/lib/pointcloud_publisher/prosac_plane_detection.py -> /home/athul/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/lib/python3.8/site-packages/pointcloud_publisher
+[0.817s] byte-compiling /home/athul/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/lib/python3.8/site-packages/pointcloud_publisher/prosac_plane_detection.py to prosac_plane_detection.cpython-38.pyc
+[0.819s] running install_data
+[0.819s] running install_egg_info
+[0.820s] removing '/home/athul/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/lib/python3.8/site-packages/pointcloud_publisher-0.0.0-py3.8.egg-info' (and everything under it)
+[0.821s] Copying ../../build/pointcloud_publisher/pointcloud_publisher.egg-info to /home/athul/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/lib/python3.8/site-packages/pointcloud_publisher-0.0.0-py3.8.egg-info
+[0.821s] running install_scripts
+[0.835s] Installing combined_plane_detection script to /home/athul/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/lib/pointcloud_publisher
+[0.835s] Installing live_lidar_segmentation script to /home/athul/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/lib/pointcloud_publisher
+[0.835s] Installing planar_patch_plane_detection script to /home/athul/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/lib/pointcloud_publisher
+[0.835s] Installing pointcloud_publisher script to /home/athul/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/lib/pointcloud_publisher
+[0.836s] Installing pointcloud_subscriber script to /home/athul/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/lib/pointcloud_publisher
+[0.836s] Installing prosac_plane_detection script to /home/athul/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/lib/pointcloud_publisher
+[0.836s] Installing prosac_v2_plane_detection script to /home/athul/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/lib/pointcloud_publisher
+[0.836s] Installing ransac_plane_detection script to /home/athul/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/lib/pointcloud_publisher
+[0.836s] Installing save_pointcloud script to /home/athul/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/lib/pointcloud_publisher
+[0.836s] Installing save_pointcloud_plane_seg script to /home/athul/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/lib/pointcloud_publisher
+[0.836s] Installing save_pointcloud_publisher script to /home/athul/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/lib/pointcloud_publisher
+[0.837s] writing list of installed files to '/home/athul/Landing-Assist-Module-LAM/ros2/build/pointcloud_publisher/install.log'
+[0.858s] Invoked command in '/home/athul/Landing-Assist-Module-LAM/ros2/src/pointcloud_publisher' returned '0': PYTHONPATH=/home/athul/Landing-Assist-Module-LAM/ros2/build/pointcloud_publisher/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/athul/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/pointcloud_publisher build --build-base /home/athul/Landing-Assist-Module-LAM/ros2/build/pointcloud_publisher/build install --record /home/athul/Landing-Assist-Module-LAM/ros2/build/pointcloud_publisher/install.log --single-version-externally-managed install_data

@@ -13,7 +13,7 @@ class PlaneDetectionNode(Node):
         # Subscription to the PointCloud2 topic
         self.subscription = self.create_subscription(
             PointCloud2,
-            'pointcloud',  # Topic name
+            '/airsim_node/PX4/lidar/Lidar1',  # Topic name
             self.pointcloud_callback,  # Callback function
             10)  # QoS profile depth
         # Publisher for the detected plane points

@@ -1,0 +1,5 @@
+  File "/home/athul/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/lib/python3.8/site-packages/pointcloud_publisher/unreal_ransac.py", line 69
+    # Check if the
+                 ^
+SyntaxError: unexpected EOF while parsing
+
