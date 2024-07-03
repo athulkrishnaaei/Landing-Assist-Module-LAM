@@ -1,47 +1,35 @@
 import rclpy
 from rclpy.node import Node
-from sensor_msgs.msg import PointCloud2
+from sensor_msgs.msg import PointCloud2, PointField
+from std_msgs.msg import Header
 import open3d as o3d
 import numpy as np
 import struct
-from sensor_msgs.msg import PointCloud2, PointField
-from std_msgs.msg import Header
 
 class PlaneDetectionNode(Node):
     def __init__(self):
         super().__init__('plane_detection')
-<<<<<<< HEAD
         self.subscription = self.create_subscription(
             PointCloud2,
-            'pointcloud',
+            'pointcloud',  # Topic name from the PCDPublisher
             self.pointcloud_callback,
             10)
-=======
-        # Subscription to the PointCloud2 topic
-        topic="/airsim_node/PX4/lidar/Lidar1"
-        self.subscription = self.create_subscription(
-            PointCloud2,
-            topic,  # Topic name
-            self.pointcloud_callback,  # Callback function
-            10)  # QoS profile depth
-        # Publisher for the detected plane points
->>>>>>> a1314e7... modified plane segmentation nodes to work with live lidar data and for visualizing in rviz
         self.publisher_ = self.create_publisher(PointCloud2, 'detected_planes', 10)
-        self.subscription  
 
     def pointcloud_callback(self, msg):
         self.get_logger().info('Received point cloud data')
         points = self.pointcloud2_to_numpy(msg)
-        o3d_cloud = self.numpy_to_open3d(points)
-        o3d_cloud= o3d_cloud.voxel_down_sample(0.09)
-        plane_model, inliers = o3d_cloud.segment_plane(distance_threshold=0.01,
-                                                       ransac_n=3,
-                                                       num_iterations=1000)
-        inlier_cloud = o3d_cloud.select_by_index(inliers)
-        self.publish_pointcloud(inlier_cloud)
+        if points.size > 0:
+            o3d_cloud = self.numpy_to_open3d(points)
+            o3d_cloud = o3d_cloud.voxel_down_sample(0.09)
+            plane_model, inliers = o3d_cloud.segment_plane(distance_threshold=0.01,
+                                                           ransac_n=3,
+                                                           num_iterations=1000)
+            inlier_cloud = o3d_cloud.select_by_index(inliers)
+            self.publish_pointcloud(inlier_cloud)
 
     def pointcloud2_to_numpy(self, cloud_msg):
-        fmt = 'fff'  # format for unpacking
+        fmt = 'fff'
         dtype = np.dtype([('x', np.float32), ('y', np.float32), ('z', np.float32)])
         cloud_arr = np.frombuffer(cloud_msg.data, dtype=dtype)
         points = np.vstack([cloud_arr['x'], cloud_arr['y'], cloud_arr['z']]).T
@@ -57,16 +45,13 @@ class PlaneDetectionNode(Node):
         header = Header()
         header.stamp = self.get_clock().now().to_msg()
         header.frame_id = 'map'
-
         fields = [
             PointField(name='x', offset=0, datatype=PointField.FLOAT32, count=1),
             PointField(name='y', offset=4, datatype=PointField.FLOAT32, count=1),
             PointField(name='z', offset=8, datatype=PointField.FLOAT32, count=1),
         ]
-
         points_array = points.flatten().tolist()
         data = struct.pack('%sf' % len(points_array), *points_array)
-
         pointcloud_msg = PointCloud2(
             header=header,
             height=1,
@@ -78,7 +63,6 @@ class PlaneDetectionNode(Node):
             data=data,
             is_dense=True
         )
-
         self.publisher_.publish(pointcloud_msg)
 
 def main(args=None):

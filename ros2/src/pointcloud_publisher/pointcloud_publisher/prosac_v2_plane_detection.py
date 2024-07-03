@@ -361,12 +361,13 @@ class LinearModel(Model):
 class PlaneDetectionNode(Node):
     def __init__(self):
         super().__init__('prosac_plane_detection')
+        topic="/airsim_node/PX4/lidar/Lidar1"
         self.subscription = self.create_subscription(
             PointCloud2,
-            'pointcloud',
+            topic,
             self.pointcloud_callback,
             10)
-        self.publisher_ = self.create_publisher(PointCloud2, 'prosac_detected_planes', 10)
+        self.publisher_ = self.create_publisher(PointCloud2, 'detected_planes', 10)
         self.subscription  
 
     def pointcloud_callback(self, msg):

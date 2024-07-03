@@ -11,10 +11,10 @@ class PlaneDetectionNode(Node):
         super().__init__('planar_patch_plane_detection')
         self.subscription = self.create_subscription(
             PointCloud2,
-            'pointcloud',
+            '/airsim_node/PX4/lidar/Lidar1',
             self.pointcloud_callback,
             10)
-        self.publisher_ = self.create_publisher(PointCloud2, 'planar_patch_detected_planes', 10)
+        self.publisher_ = self.create_publisher(PointCloud2, 'detected_planes', 10)
         self.subscription  # prevent unused variable warning
 
     def pointcloud_callback(self, msg):

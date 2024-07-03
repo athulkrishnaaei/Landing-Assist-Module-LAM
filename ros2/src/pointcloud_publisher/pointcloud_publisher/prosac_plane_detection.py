@@ -11,6 +11,7 @@ from std_msgs.msg import Header
 class PlaneDetectionNode(Node):
     def __init__(self):
         super().__init__('prosac_plane_detection')
+<<<<<<< HEAD
         self.subscription = self.create_subscription(
             PointCloud2,
             'pointcloud',
@@ -18,6 +19,18 @@ class PlaneDetectionNode(Node):
             10)
         self.publisher_ = self.create_publisher(PointCloud2, 'prosac_detected_planes', 10)
         self.subscription  
+=======
+        topic ="/airsim_node/PX4/lidar/Lidar1"
+        # Subscription to the PointCloud2 topic
+        self.subscription = self.create_subscription(
+            PointCloud2,
+            topic,  # Topic name
+            self.pointcloud_callback,  # Callback function
+            10)  # QoS profile depth
+        # Publisher for the detected plane points
+        self.publisher_ = self.create_publisher(PointCloud2, 'detected_planes', 10)
+        self.subscription  # Prevent unused variable warning
+>>>>>>> a1314e7... modified plane segmentation nodes to work with live lidar data and for visualizing in rviz
 
     def pointcloud_callback(self, msg):
         self.get_logger().info('Received point cloud data')
