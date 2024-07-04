@@ -200,6 +200,7 @@ class PlaneDetectionNode(Node):
         
         o3d_cloud = self.numpy_to_open3d(points)
         o3d_cloud = o3d_cloud.voxel_down_sample(0.05)
+        
         sensor_confidence = 1.0
         point_density = self.compute_point_density(o3d_cloud, radius=1.0)
         reflectance_intensity = self.compute_reflectance_intensity(np.random.uniform(0, 255, len(o3d_cloud.points)))

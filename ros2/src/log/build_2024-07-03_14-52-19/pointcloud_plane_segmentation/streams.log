@@ -1,0 +1,24 @@
+[0.804s] Invoking command in '/home/athul/Landing-Assist-Module-LAM/ros2/src/pointcloud_plane_segmentation': PYTHONPATH=/home/athul/Landing-Assist-Module-LAM/ros2/src/build/pointcloud_plane_segmentation/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/athul/Landing-Assist-Module-LAM/ros2/src/install/pointcloud_plane_segmentation/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/pointcloud_plane_segmentation build --build-base /home/athul/Landing-Assist-Module-LAM/ros2/src/build/pointcloud_plane_segmentation/build install --record /home/athul/Landing-Assist-Module-LAM/ros2/src/build/pointcloud_plane_segmentation/install.log --install-scripts $base/lib/pointcloud_plane_segmentation --single-version-externally-managed install_data
+[0.985s] running egg_info
+[0.986s] writing ../build/pointcloud_plane_segmentation/pointcloud_plane_segmentation.egg-info/PKG-INFO
+[0.986s] writing dependency_links to ../build/pointcloud_plane_segmentation/pointcloud_plane_segmentation.egg-info/dependency_links.txt
+[0.986s] writing entry points to ../build/pointcloud_plane_segmentation/pointcloud_plane_segmentation.egg-info/entry_points.txt
+[0.986s] writing requirements to ../build/pointcloud_plane_segmentation/pointcloud_plane_segmentation.egg-info/requires.txt
+[0.986s] writing top-level names to ../build/pointcloud_plane_segmentation/pointcloud_plane_segmentation.egg-info/top_level.txt
+[1.011s] reading manifest file '../build/pointcloud_plane_segmentation/pointcloud_plane_segmentation.egg-info/SOURCES.txt'
+[1.012s] writing manifest file '../build/pointcloud_plane_segmentation/pointcloud_plane_segmentation.egg-info/SOURCES.txt'
+[1.012s] running build
+[1.012s] running build_py
+[1.013s] copying pointcloud_plane_segmentation/plane_segmentation.py -> /home/athul/Landing-Assist-Module-LAM/ros2/src/build/pointcloud_plane_segmentation/build/lib/pointcloud_plane_segmentation
+[1.013s] running install
+[1.013s] running install_lib
+[1.014s] copying /home/athul/Landing-Assist-Module-LAM/ros2/src/build/pointcloud_plane_segmentation/build/lib/pointcloud_plane_segmentation/plane_segmentation.py -> /home/athul/Landing-Assist-Module-LAM/ros2/src/install/pointcloud_plane_segmentation/lib/python3.8/site-packages/pointcloud_plane_segmentation
+[1.015s] byte-compiling /home/athul/Landing-Assist-Module-LAM/ros2/src/install/pointcloud_plane_segmentation/lib/python3.8/site-packages/pointcloud_plane_segmentation/plane_segmentation.py to plane_segmentation.cpython-38.pyc
+[1.016s] running install_data
+[1.016s] Sorry: IndentationError: unindent does not match any outer indentation level (plane_segmentation.py, line 225)
+[1.016s] running install_egg_info
+[1.017s] removing '/home/athul/Landing-Assist-Module-LAM/ros2/src/install/pointcloud_plane_segmentation/lib/python3.8/site-packages/pointcloud_plane_segmentation-0.0.0-py3.8.egg-info' (and everything under it)
+[1.017s] Copying ../build/pointcloud_plane_segmentation/pointcloud_plane_segmentation.egg-info to /home/athul/Landing-Assist-Module-LAM/ros2/src/install/pointcloud_plane_segmentation/lib/python3.8/site-packages/pointcloud_plane_segmentation-0.0.0-py3.8.egg-info
+[1.018s] running install_scripts
+[1.031s] writing list of installed files to '/home/athul/Landing-Assist-Module-LAM/ros2/src/build/pointcloud_plane_segmentation/install.log'
+[1.065s] Invoked command in '/home/athul/Landing-Assist-Module-LAM/ros2/src/pointcloud_plane_segmentation' returned '0': PYTHONPATH=/home/athul/Landing-Assist-Module-LAM/ros2/src/build/pointcloud_plane_segmentation/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/athul/Landing-Assist-Module-LAM/ros2/src/install/pointcloud_plane_segmentation/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/pointcloud_plane_segmentation build --build-base /home/athul/Landing-Assist-Module-LAM/ros2/src/build/pointcloud_plane_segmentation/build install --record /home/athul/Landing-Assist-Module-LAM/ros2/src/build/pointcloud_plane_segmentation/install.log --install-scripts $base/lib/pointcloud_plane_segmentation --single-version-externally-managed install_data

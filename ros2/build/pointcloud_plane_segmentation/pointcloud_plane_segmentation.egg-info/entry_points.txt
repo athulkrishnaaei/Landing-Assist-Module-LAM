@@ -1,0 +1,3 @@
+[console_scripts]
+plane_segmentation = pointcloud_plane_segmentation.plane_segmentation:main
+
