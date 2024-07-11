@@ -1,5 +1,0 @@
-  File "/home/athul/Landing-Assist-Module-LAM/ros2/src/install/pointcloud_plane_segmentation/lib/python3.8/site-packages/pointcloud_plane_segmentation/plane_segmentation.py", line 209
-    inlier_cloud = ransac_plane_segmentation(self,o3d_cloud):
-                                                            ^
-SyntaxError: invalid syntax
-

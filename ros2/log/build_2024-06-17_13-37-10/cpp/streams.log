@@ -1,5 +1,0 @@
-[0.012s] Invoking command in '/home/athul/Landing-Assist-Module-LAM/ros2/build/cpp': /usr/bin/cmake --build /home/athul/Landing-Assist-Module-LAM/ros2/build/cpp -- -j16 -l16
-[0.019s] CMake Error: The current CMakeCache.txt directory /home/athul/Landing-Assist-Module-LAM/ros2/build/cpp/CMakeCache.txt is different than the directory /home/athul/uav/Landing-Assist-Module-LAM/ros2/build/cpp where CMakeCache.txt was created. This may result in binaries being created in the wrong place. If you are not sure, reedit the CMakeCache.txt
-[0.024s] No such file or directory
-[0.024s] CMake Error: Generator: execution of make failed. Make command was: /usr/bin/gmake -j16 -l16 && 
-[0.160s] Invoked command in '/home/athul/Landing-Assist-Module-LAM/ros2/build/cpp' returned '1': /usr/bin/cmake --build /home/athul/Landing-Assist-Module-LAM/ros2/build/cpp -- -j16 -l16
