@@ -187,7 +187,8 @@ class PlaneDetectionNode(Node):
         self.declare_parameter('method' , 'ransac')
         self.method = self.get_parameter('method').get_parameter_value().string_value
         # Subscription to the PointCloud2 topic
-        topic = "/airsim_node/PX4/lidar/Lidar1"
+        topic="/pointcloud"
+        #topic = "/airsim_node/PX4/lidar/Lidar1"
         self.subscription = self.create_subscription(
             PointCloud2,
             topic,  # Topic name
