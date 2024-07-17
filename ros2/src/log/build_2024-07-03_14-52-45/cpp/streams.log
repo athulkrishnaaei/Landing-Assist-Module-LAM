@@ -1,2 +1,0 @@
-[0.031s] Invoking command in '/home/athul/Landing-Assist-Module-LAM/ros2/src/build/cpp': /usr/bin/cmake --build /home/athul/Landing-Assist-Module-LAM/ros2/src/build/cpp -- -j16 -l16
-[0.423s] Invoked command in '/home/athul/Landing-Assist-Module-LAM/ros2/src/build/cpp' returned '0': /usr/bin/cmake --build /home/athul/Landing-Assist-Module-LAM/ros2/src/build/cpp -- -j16 -l16

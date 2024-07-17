@@ -1,0 +1,46 @@
+running egg_info
+creating ../../build/pointcloud_publisher/pointcloud_publisher.egg-info
+writing ../../build/pointcloud_publisher/pointcloud_publisher.egg-info/PKG-INFO
+writing dependency_links to ../../build/pointcloud_publisher/pointcloud_publisher.egg-info/dependency_links.txt
+writing entry points to ../../build/pointcloud_publisher/pointcloud_publisher.egg-info/entry_points.txt
+writing requirements to ../../build/pointcloud_publisher/pointcloud_publisher.egg-info/requires.txt
+writing top-level names to ../../build/pointcloud_publisher/pointcloud_publisher.egg-info/top_level.txt
+writing manifest file '../../build/pointcloud_publisher/pointcloud_publisher.egg-info/SOURCES.txt'
+reading manifest file '../../build/pointcloud_publisher/pointcloud_publisher.egg-info/SOURCES.txt'
+writing manifest file '../../build/pointcloud_publisher/pointcloud_publisher.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/build/pointcloud_publisher/build
+creating /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/build/pointcloud_publisher/build/lib
+creating /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/build/pointcloud_publisher/build/lib/pointcloud_publisher
+copying pointcloud_publisher/pointcloud_publisher.py -> /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/build/pointcloud_publisher/build/lib/pointcloud_publisher
+copying pointcloud_publisher/planar_patch_plane_detection.py -> /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/build/pointcloud_publisher/build/lib/pointcloud_publisher
+copying pointcloud_publisher/__init__.py -> /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/build/pointcloud_publisher/build/lib/pointcloud_publisher
+copying pointcloud_publisher/setup.py -> /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/build/pointcloud_publisher/build/lib/pointcloud_publisher
+copying pointcloud_publisher/pointcloud_subscriber.py -> /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/build/pointcloud_publisher/build/lib/pointcloud_publisher
+running install
+running install_lib
+creating /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/lib/python3.8/site-packages/pointcloud_publisher
+copying /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/build/pointcloud_publisher/build/lib/pointcloud_publisher/pointcloud_publisher.py -> /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/lib/python3.8/site-packages/pointcloud_publisher
+copying /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/build/pointcloud_publisher/build/lib/pointcloud_publisher/planar_patch_plane_detection.py -> /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/lib/python3.8/site-packages/pointcloud_publisher
+copying /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/build/pointcloud_publisher/build/lib/pointcloud_publisher/__init__.py -> /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/lib/python3.8/site-packages/pointcloud_publisher
+copying /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/build/pointcloud_publisher/build/lib/pointcloud_publisher/setup.py -> /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/lib/python3.8/site-packages/pointcloud_publisher
+copying /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/build/pointcloud_publisher/build/lib/pointcloud_publisher/pointcloud_subscriber.py -> /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/lib/python3.8/site-packages/pointcloud_publisher
+byte-compiling /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/lib/python3.8/site-packages/pointcloud_publisher/pointcloud_publisher.py to pointcloud_publisher.cpython-38.pyc
+byte-compiling /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/lib/python3.8/site-packages/pointcloud_publisher/planar_patch_plane_detection.py to planar_patch_plane_detection.cpython-38.pyc
+byte-compiling /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/lib/python3.8/site-packages/pointcloud_publisher/__init__.py to __init__.cpython-38.pyc
+byte-compiling /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/lib/python3.8/site-packages/pointcloud_publisher/setup.py to setup.cpython-38.pyc
+byte-compiling /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/lib/python3.8/site-packages/pointcloud_publisher/pointcloud_subscriber.py to pointcloud_subscriber.cpython-38.pyc
+running install_data
+creating /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/share/ament_index
+creating /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/share/ament_index/resource_index
+creating /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/share/ament_index/resource_index/packages
+copying resource/pointcloud_publisher -> /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/share/ament_index/resource_index/packages
+copying package.xml -> /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/share/pointcloud_publisher
+running install_egg_info
+Copying ../../build/pointcloud_publisher/pointcloud_publisher.egg-info to /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/lib/python3.8/site-packages/pointcloud_publisher-0.0.0-py3.8.egg-info
+running install_scripts
+Installing planar_patch_plane_detection script to /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/lib/pointcloud_publisher
+Installing pointcloud_publisher script to /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/lib/pointcloud_publisher
+Installing pointcloud_subscriber script to /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/install/pointcloud_publisher/lib/pointcloud_publisher
+writing list of installed files to '/home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/build/pointcloud_publisher/install.log'

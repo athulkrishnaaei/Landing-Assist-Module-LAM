@@ -1,8 +1,8 @@
-# Install script for directory: /home/athul/Landing-Assist-Module-LAM/ros2/src/cpp
+# Install script for directory: /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/src/cpp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/athul/Landing-Assist-Module-LAM/ros2/install/cpp")
+  set(CMAKE_INSTALL_PREFIX "/home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/install/cpp")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/athul/Landing-Assist-Module-LAM/ros2/build/cpp/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/build/cpp/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

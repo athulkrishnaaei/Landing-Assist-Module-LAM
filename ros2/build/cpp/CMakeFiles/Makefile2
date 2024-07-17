@@ -44,10 +44,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/athul/Landing-Assist-Module-LAM/ros2/src/cpp
+CMAKE_SOURCE_DIR = /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/src/cpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/athul/Landing-Assist-Module-LAM/ros2/build/cpp
+CMAKE_BINARY_DIR = /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/build/cpp
 
 #=============================================================================
 # Directory level rules for the build root directory

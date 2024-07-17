@@ -1,0 +1,45 @@
+/home/airsim_user/.local/lib/python3.8/site-packages/setuptools/dist.py:478: SetuptoolsDeprecationWarning: Invalid dash-separated options
+!!
+
+        ********************************************************************************
+        Usage of dash-separated 'script-dir' will not be supported in future
+        versions. Please use the underscore name 'script_dir' instead.
+
+        By 2024-Sep-26, you need to update your project and remove deprecated calls
+        or your builds will no longer be supported.
+
+        See https://setuptools.pypa.io/en/latest/userguide/declarative_config.html for details.
+        ********************************************************************************
+
+!!
+  opt = self.warn_dash_deprecation(opt, section)
+running develop
+/home/airsim_user/.local/lib/python3.8/site-packages/setuptools/command/develop.py:42: EasyInstallDeprecationWarning: easy_install command is deprecated.
+!!
+
+        ********************************************************************************
+        Please avoid running ``setup.py`` and ``easy_install``.
+        Instead, use pypa/build, pypa/installer or other
+        standards-based tools.
+
+        See https://github.com/pypa/setuptools/issues/917 for details.
+        ********************************************************************************
+
+!!
+  easy_install.initialize_options(self)
+running egg_info
+writing pointcloud_plane_detection.egg-info/PKG-INFO
+writing dependency_links to pointcloud_plane_detection.egg-info/dependency_links.txt
+writing entry points to pointcloud_plane_detection.egg-info/entry_points.txt
+writing requirements to pointcloud_plane_detection.egg-info/requires.txt
+writing top-level names to pointcloud_plane_detection.egg-info/top_level.txt
+reading manifest file 'pointcloud_plane_detection.egg-info/SOURCES.txt'
+writing manifest file 'pointcloud_plane_detection.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/install/pointcloud_plane_detection/lib/python3.8/site-packages/pointcloud-plane-detection.egg-link (link to .)
+Installing plane_detection script to /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/install/pointcloud_plane_detection/lib/pointcloud_plane_detection
+
+Installed /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/build/pointcloud_plane_detection
+running symlink_data
+symbolically linking /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/build/pointcloud_plane_detection/resource/pointcloud_plane_detection -> /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/install/pointcloud_plane_detection/share/ament_index/resource_index/packages
+symbolically linking /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/build/pointcloud_plane_detection/package.xml -> /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/install/pointcloud_plane_detection/share/pointcloud_plane_detection

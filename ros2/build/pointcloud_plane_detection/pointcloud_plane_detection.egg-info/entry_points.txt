@@ -1,0 +1,2 @@
+[console_scripts]
+plane_detection = pointcloud_plane_detection.plane_detection:main

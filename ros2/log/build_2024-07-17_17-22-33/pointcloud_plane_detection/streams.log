@@ -1,0 +1,47 @@
+[0.890s] Invoking command in '/home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/build/pointcloud_plane_detection': PYTHONPATH=/home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/build/pointcloud_plane_detection/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/install/pointcloud_plane_detection/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/build/pointcloud_plane_detection/build --no-deps symlink_data --force
+[0.996s] /home/airsim_user/.local/lib/python3.8/site-packages/setuptools/dist.py:478: SetuptoolsDeprecationWarning: Invalid dash-separated options
+[0.996s] !!
+[0.997s] 
+[0.997s]         ********************************************************************************
+[0.997s]         Usage of dash-separated 'script-dir' will not be supported in future
+[0.997s]         versions. Please use the underscore name 'script_dir' instead.
+[0.997s] 
+[0.997s]         By 2024-Sep-26, you need to update your project and remove deprecated calls
+[0.997s]         or your builds will no longer be supported.
+[0.997s] 
+[0.997s]         See https://setuptools.pypa.io/en/latest/userguide/declarative_config.html for details.
+[0.997s]         ********************************************************************************
+[0.997s] 
+[0.998s] !!
+[0.998s]   opt = self.warn_dash_deprecation(opt, section)
+[1.148s] running develop
+[1.148s] /home/airsim_user/.local/lib/python3.8/site-packages/setuptools/command/develop.py:42: EasyInstallDeprecationWarning: easy_install command is deprecated.
+[1.148s] !!
+[1.148s] 
+[1.149s]         ********************************************************************************
+[1.149s]         Please avoid running ``setup.py`` and ``easy_install``.
+[1.149s]         Instead, use pypa/build, pypa/installer or other
+[1.149s]         standards-based tools.
+[1.149s] 
+[1.149s]         See https://github.com/pypa/setuptools/issues/917 for details.
+[1.149s]         ********************************************************************************
+[1.149s] 
+[1.149s] !!
+[1.149s]   easy_install.initialize_options(self)
+[1.313s] running egg_info
+[1.326s] writing pointcloud_plane_detection.egg-info/PKG-INFO
+[1.327s] writing dependency_links to pointcloud_plane_detection.egg-info/dependency_links.txt
+[1.327s] writing entry points to pointcloud_plane_detection.egg-info/entry_points.txt
+[1.327s] writing requirements to pointcloud_plane_detection.egg-info/requires.txt
+[1.327s] writing top-level names to pointcloud_plane_detection.egg-info/top_level.txt
+[1.357s] reading manifest file 'pointcloud_plane_detection.egg-info/SOURCES.txt'
+[1.357s] writing manifest file 'pointcloud_plane_detection.egg-info/SOURCES.txt'
+[1.410s] running build_ext
+[1.410s] Creating /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/install/pointcloud_plane_detection/lib/python3.8/site-packages/pointcloud-plane-detection.egg-link (link to .)
+[1.411s] Installing plane_detection script to /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/install/pointcloud_plane_detection/lib/pointcloud_plane_detection
+[1.411s] 
+[1.411s] Installed /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/build/pointcloud_plane_detection
+[1.411s] running symlink_data
+[1.411s] symbolically linking /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/build/pointcloud_plane_detection/resource/pointcloud_plane_detection -> /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/install/pointcloud_plane_detection/share/ament_index/resource_index/packages
+[1.411s] symbolically linking /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/build/pointcloud_plane_detection/package.xml -> /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/install/pointcloud_plane_detection/share/pointcloud_plane_detection
+[1.440s] Invoked command in '/home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/build/pointcloud_plane_detection' returned '0': PYTHONPATH=/home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/build/pointcloud_plane_detection/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/install/pointcloud_plane_detection/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/build/pointcloud_plane_detection/build --no-deps symlink_data --force

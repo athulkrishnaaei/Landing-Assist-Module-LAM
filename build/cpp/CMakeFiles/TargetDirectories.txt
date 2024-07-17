@@ -1,2 +1,0 @@
-/home/athul/uav/Landing-Assist-Module-LAM/build/cpp/CMakeFiles/edit_cache.dir
-/home/athul/uav/Landing-Assist-Module-LAM/build/cpp/CMakeFiles/rebuild_cache.dir

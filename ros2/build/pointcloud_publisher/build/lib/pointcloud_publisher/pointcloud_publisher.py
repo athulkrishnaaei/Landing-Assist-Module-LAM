@@ -1,4 +1,3 @@
-
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import PointCloud2, PointField
@@ -10,10 +9,13 @@ from std_msgs.msg import Header
 class PointCloudPublisher(Node):
     def __init__(self):
         super().__init__('pointcloud_publisher')
+        self.declare_parameter('file_path', '/home/airsim_user/Downloads/Landing-Assist-Module-LAM/cloud.pcd')
+        file_path = self.get_parameter('file_path').get_parameter_value().string_value
+
         self.publisher_ = self.create_publisher(PointCloud2, 'pointcloud', 10)
         timer_period = 1.0  # seconds
         self.timer = self.create_timer(timer_period, self.timer_callback)
-        self.pointcloud_data = self.load_pointcloud_file('/home/athul/Desktop/cloud.pcd')
+        self.pointcloud_data = self.load_pointcloud_file(file_path)
         
     def load_pointcloud_file(self, file_path):
         # Load the point cloud data
