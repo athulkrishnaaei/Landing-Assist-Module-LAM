@@ -6,15 +6,14 @@ from launch.substitutions import LaunchConfiguration
 
 def generate_launch_description():
     return LaunchDescription([
-        DeclareLaunchArgument('method', default_value='ransac', description='Segmentation method to perform'),
+        DeclareLaunchArgument('method', default_value='prosac', description='Select segmentation method to perform'),
 
         Node(
-            package='pointcloud_plane_segmentation',
-            executable='plane_segmentation',
-            name='plane_segmentation',
+            package='pointcloud_plane_detection',
+            executable='plane_detection',
+            name='plane_detection',
             output='screen',
             parameters=[{'method': LaunchConfiguration('method')}],
             arguments=[]
         )
     ])
-

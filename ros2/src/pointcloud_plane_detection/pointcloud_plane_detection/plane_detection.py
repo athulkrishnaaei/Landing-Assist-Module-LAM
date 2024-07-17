@@ -1,191 +1,16 @@
-# # plane_detection_node.py
-# import sys
-# import os
-# sys.path.append(os.path.dirname(os.path.realpath(__file__)))
-# import rclpy
-# from rclpy.node import Node
-# from sensor_msgs.msg import PointCloud2, PointField
-# import open3d as o3d
-# import numpy as np
-# import struct
-# from std_msgs.msg import Header
-# from ransac_prosac import prosac, Model
-
-# class PlaneDetectionNode(Node):
-#     def __init__(self):
-#         super().__init__('prosac_v2_plane_detection')
-#         self.subscription = self.create_subscription(
-#             PointCloud2,
-#             'pointcloud',
-#             self.pointcloud_callback,
-#             10)
-#         self.publisher_ = self.create_publisher(PointCloud2, 'prosac_v2_detected_planes', 10)
-#         self.subscription  
-
-#     def pointcloud_callback(self, msg):
-#         self.get_logger().info('Received point cloud data')
-#         points = self.pointcloud2_to_numpy(msg)
-        
-#         o3d_cloud = self.numpy_to_open3d(points)
-#         o3d_cloud = o3d_cloud.voxel_down_sample(0.0999)
-#         sensor_confidence = 1.0
-#         point_density = self.compute_point_density(o3d_cloud, radius=1.0)
-#         reflectance_intensity = self.compute_reflectance_intensity(np.random.uniform(0, 255, len(o3d_cloud.points)))
-
-#         quality_scores = (
-#             sensor_confidence + 
-#             reflectance_intensity + 
-#             point_density
-#         ) / 3.0
-
-#         quality_scores /= np.sum(quality_scores)
-#         quality_scores = np.nan_to_num(quality_scores, nan=1.0 / len(quality_scores))
-
-#         self.get_logger().info(f'QUALITY SCORES {quality_scores}')
-
-#         # Use the imported prosac function
-#         points_array = np.asarray(o3d_cloud.points)
-#         tolerance = 0.01
-#         beta = 0.1
-#         eta0 = 0.05
-#         psi = 0.05
-#         max_outlier_proportion = 0.9
-#         p_good_sample = 0.99
-#         max_number_of_draws = 1000
-
-#         plane_model = prosac(points_array, quality_scores, PlaneModel, tolerance, beta, eta0, psi,
-#                              max_outlier_proportion, p_good_sample, max_number_of_draws)
-
-#         inliers = self.get_inliers(points_array, plane_model, tolerance)
-#         inlier_cloud = o3d_cloud.select_by_index(inliers)
-#         self.publish_pointcloud(inlier_cloud)
-
-#     def compute_point_density(self, pcd, radius=1.0):
-#         self.get_logger().info('Computing point density')
-#         num_points = len(pcd.points)
-#         density = np.zeros(num_points)
-
-#         pcd_tree = o3d.geometry.KDTreeFlann(pcd)
-
-#         for i in range(num_points):
-#             self.get_logger().info("Point number {}".format(num_points))
-#             [k, idx, _] = pcd_tree.search_radius_vector_3d(pcd.points[i], radius)
-#             density[i] = len(idx)
-
-#         min_val = np.min(density)
-#         max_val = np.max(density)
-#         if min_val != max_val:
-#             density_normalized = (density - min_val) / (max_val - min_val)
-#         else:
-#             density_normalized = np.zeros(num_points)
-
-#         return density_normalized
-
-#     def compute_reflectance_intensity(self, intensities):
-#         self.get_logger().info('Computing reflectance intensity')
-#         min_val = np.min(intensities)
-#         max_val = np.max(intensities)
-#         if min_val != max_val:
-#             intensity_normalized = (intensities - min_val) / (max_val - min_val)
-#         else:
-#             intensity_normalized = np.zeros(len(intensities))
-      
-#         return intensity_normalized
-
-#     def get_inliers(self, points, model, tolerance):
-#         distances_to_plane = np.abs(np.dot(points, model[:3]) + model[3])
-#         inliers = np.where(distances_to_plane < tolerance)[0]
-#         return inliers
-
-#     def pointcloud2_to_numpy(self, cloud_msg):
-#         fmt = 'fff'
-#         dtype = np.dtype([('x', np.float32), ('y', np.float32), ('z', np.float32)])
-#         cloud_arr = np.frombuffer(cloud_msg.data, dtype=dtype)
-#         points = np.vstack([cloud_arr['x'], cloud_arr['y'], cloud_arr['z']]).T
-#         return points
-
-#     def numpy_to_open3d(self, points):
-#         cloud = o3d.geometry.PointCloud()
-#         cloud.points = o3d.utility.Vector3dVector(points)
-#         return cloud
-
-#     def publish_pointcloud(self, cloud):
-#         points = np.asarray(cloud.points)
-#         header = Header()
-#         header.stamp = self.get_clock().now().to_msg()
-#         header.frame_id = 'map'
-
-#         fields = [
-#             PointField(name='x', offset=0, datatype=PointField.FLOAT32, count=1),
-#             PointField(name='y', offset=4, datatype=PointField.FLOAT32, count=1),
-#             PointField(name='z', offset=8, datatype=PointField.FLOAT32, count=1),
-#         ]
-
-#         points_array = points.flatten().tolist()
-#         data = struct.pack('%sf' % len(points_array), *points_array)
-
-#         pointcloud_msg = PointCloud2(
-#             header=header,
-#             height=1,
-#             width=len(points),
-#             fields=fields,
-#             is_bigendian=False,
-#             point_step=12,
-#             row_step=12 * len(points),
-#             data=data,
-#             is_dense=True
-#         )
-
-#         self.publisher_.publish(pointcloud_msg)
-
-# class PlaneModel(Model):
-#     def __init__(self):
-#         self.normal = np.zeros(3)
-#         self.d = 0
-
-#     def fit(self, pts):
-#         centroid = np.mean(pts, axis=0)
-#         centered_points = pts - centroid
-#         u, s, vh = np.linalg.svd(centered_points)
-#         self.normal = vh[-1, :]
-#         self.d = -np.dot(self.normal, centroid)
-
-#     def error(self, data):
-#         return np.abs(np.dot(data, self.normal) + self.d)
-
-#     def predict(self, data):
-#         return np.dot(data, self.normal) + self.d
-
-#     @staticmethod
-#     def get_complexity():
-#         return 3
-
-# def main(args=None):
-#     rclpy.init(args=args)
-#     node = PlaneDetectionNode()
-#     rclpy.spin(node)
-#     node.destroy_node()
-#     rclpy.shutdown()
-
-# if __name__ == '__main__':
-#     main()
-
-
-
-
-
 import random
 from abc import ABC, abstractmethod
-import numpy as np
+import rclpy
 from scipy import stats
 from scipy.stats.distributions import chi2
-import matplotlib.pyplot as plt
-import rclpy
 from rclpy.node import Node
-from sensor_msgs.msg import PointCloud2, PointField
+from sensor_msgs.msg import PointCloud2
 import open3d as o3d
+import numpy as np
 import struct
+from sensor_msgs.msg import PointCloud2, PointField
 from std_msgs.msg import Header
+import argparse
 
 # Abstract Model class
 class Model(ABC):
@@ -231,6 +56,8 @@ def ransac(data, model_type, tolerance, prob_inlier, p=0.99):
     model = model_type()
     model.fit(inliers)
     return model
+
+
 
 # PROSAC implementation
 def prosac(data, quality, model_type, tolerance, beta, eta0, psi,
@@ -335,7 +162,6 @@ def prosac(data, quality, model_type, tolerance, beta, eta0, psi,
 
 # LinearModel class
 class LinearModel(Model):
-
     def __init__(self):
         self.m = 0
         self.b = 0
@@ -357,33 +183,64 @@ class LinearModel(Model):
     def get_complexity():
         return 2
 
-# PlaneDetectionNode class
 class PlaneDetectionNode(Node):
     def __init__(self):
-        super().__init__('prosac_plane_detection')
-        topic="/airsim_node/PX4/lidar/Lidar1"
+        super().__init__('plane_detection')
+        self.declare_parameter('method','prosac')
+        self.method = self.get_parameter('method').get_parameter_value().string_value
+        self.get_logger().info('method used is : %s' % self.method)
+        # Subscription to the PointCloud2 topic
+        topic="/pointcloud"
+        #topic = "/airsim_node/PX4/lidar/Lidar1"
         self.subscription = self.create_subscription(
             PointCloud2,
-            topic,
-            self.pointcloud_callback,
-            10)
+            topic,  # Topic name
+            self.pointcloud_callback,  # Callback function
+            10)  # QoS profile depth
+        # Publisher for the detected plane points
         self.publisher_ = self.create_publisher(PointCloud2, 'detected_planes', 10)
-        self.subscription  
+        self.subscription  # Prevent unused variable warning
 
     def pointcloud_callback(self, msg):
         self.get_logger().info('Received point cloud data')
+        # Convert ROS PointCloud2 message to numpy array
         points = self.pointcloud2_to_numpy(msg)
-        
+
+        # Convert numpy array to Open3D point cloud
         o3d_cloud = self.numpy_to_open3d(points)
-        o3d_cloud = o3d_cloud.voxel_down_sample(0.05)
-        
+        o3d_cloud = o3d_cloud.voxel_down_sample(0.09)  # Downsample the point cloud
+
+        if self.method == "prosac":
+            inlier_cloud = self.prosac_plane_segmentation(o3d_cloud)
+        elif self.method == "ransac":
+            inlier_cloud = self.ransac_plane_segmentation(o3d_cloud)
+        elif self.method == "planar_patch":
+            inlier_cloud = self.detect_planar_patches(o3d_cloud)
+
+        # Publish the inlier points as a new point cloud
+        self.publish_pointcloud(inlier_cloud)
+
+    def ransac_plane_segmentation(self, cloud):
+        self.get_logger().info(f'Running ransac plane segmentation')
+        # Segment the largest planar component from the point cloud
+        plane_model, inliers = cloud.segment_plane(distance_threshold=0.01,
+                                                   ransac_n=3,
+                                                   num_iterations=1000)
+        inlier_cloud = cloud.select_by_index(inliers)
+        return inlier_cloud
+
+    def prosac_plane_segmentation(self, cloud):
+        self.get_logger().info(f'Running prosac plane segmentation')
+        points = np.asarray(cloud.points)
+        cloud = cloud.voxel_down_sample(0.05)
+
         sensor_confidence = 1.0
-        point_density = self.compute_point_density(o3d_cloud, radius=1.0)
-        reflectance_intensity = self.compute_reflectance_intensity(np.random.uniform(0, 255, len(o3d_cloud.points)))
+        point_density = self.compute_point_density(cloud, radius=1.0)
+        reflectance_intensity = self.compute_reflectance_intensity(np.random.uniform(0, 255, len(cloud.points)))
 
         quality_scores = (
-            sensor_confidence + 
-            reflectance_intensity + 
+            sensor_confidence +
+            reflectance_intensity +
             point_density
         ) / 3.0
 
@@ -392,9 +249,10 @@ class PlaneDetectionNode(Node):
 
         self.get_logger().info(f'QUALITY SCORES {quality_scores}')
 
-        plane_model, inliers = self.segment_plane_PROSAC(o3d_cloud, quality_scores)
-        inlier_cloud = o3d_cloud.select_by_index(inliers)
-        self.publish_pointcloud(inlier_cloud)
+        plane_model, inliers = self.segment_plane_PROSAC(cloud, quality_scores)
+        inlier_cloud = cloud.select_by_index(inliers)
+
+        return inlier_cloud
 
     def compute_point_density(self, pcd, radius=1.0):
         self.get_logger().info('Computing point density')
@@ -425,9 +283,9 @@ class PlaneDetectionNode(Node):
             intensity_normalized = (intensities - min_val) / (max_val - min_val)
         else:
             intensity_normalized = np.zeros(len(intensities))
-      
+
         return intensity_normalized
-    
+
     def fit_plane(self, points):
         centroid = np.mean(points, axis=0)
         centered_points = points - centroid
@@ -435,6 +293,25 @@ class PlaneDetectionNode(Node):
         normal = vh[-1, :]
         d = -np.dot(normal, centroid)
         return np.append(normal, d)
+
+    def detect_planar_patches(self, cloud):
+        self.get_logger().info(f'Running planar patch segmentation')
+        # Estimate normals for the point cloud
+        cloud.estimate_normals(search_param=o3d.geometry.KDTreeSearchParamHybrid(radius=0.1, max_nn=30))
+
+        # DBSCAN clustering
+        labels = np.array(cloud.cluster_dbscan(eps=0.02, min_points=10, print_progress=True))
+
+        max_label = labels.max()
+        print(f"point cloud has {max_label + 1} clusters")
+
+        planes = o3d.geometry.PointCloud()
+        for i in range(max_label + 1):
+            indices = np.where(labels == i)[0]
+            if len(indices) > 100:  # example threshold for minimum points in a plane
+                planes += cloud.select_by_index(indices)
+
+        return planes
 
     def segment_plane_PROSAC(self, pcd, quality_scores_normalized, ransac_n=3, num_iterations=1000, distance_threshold=0.01):
         points = np.asarray(pcd.points)
@@ -461,18 +338,21 @@ class PlaneDetectionNode(Node):
         return best_model, best_inliers
 
     def pointcloud2_to_numpy(self, cloud_msg):
-        fmt = 'fff'
+        # Convert ROS PointCloud2 message to numpy array
+        fmt = 'fff'  # Format for unpacking
         dtype = np.dtype([('x', np.float32), ('y', np.float32), ('z', np.float32)])
         cloud_arr = np.frombuffer(cloud_msg.data, dtype=dtype)
         points = np.vstack([cloud_arr['x'], cloud_arr['y'], cloud_arr['z']]).T
         return points
 
     def numpy_to_open3d(self, points):
+        # Convert numpy array to Open3D point cloud
         cloud = o3d.geometry.PointCloud()
         cloud.points = o3d.utility.Vector3dVector(points)
         return cloud
 
     def publish_pointcloud(self, cloud):
+        # Convert Open3D point cloud to ROS PointCloud2 message
         points = np.asarray(cloud.points)
         header = Header()
         header.stamp = self.get_clock().now().to_msg()
@@ -499,6 +379,7 @@ class PlaneDetectionNode(Node):
             is_dense=True
         )
 
+        # Publish the PointCloud2 message
         self.publisher_.publish(pointcloud_msg)
 
 def main(args=None):

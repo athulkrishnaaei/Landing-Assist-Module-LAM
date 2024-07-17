@@ -1,8 +1,6 @@
-import os
-from glob import glob
 from setuptools import setup
 
-package_name = 'pointcloud_plane_segmentation'
+package_name = 'pointcloud_plane_detection'
 
 setup(
     name=package_name,
@@ -12,22 +10,20 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
-        # Include all launch files.
-        (os.path.join('share', package_name, 'launch'), glob(os.path.join('launch', '*launch.[pxy][yma]*')))
     ],
     py_modules=[
-        'pointcloud_plane_segmentation.plane_segmentation'
+        'pointcloud_plane_detection.plane_detection'
     ],
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='athul',
     maintainer_email='athulkrishnakdgr@gmail.com',
-    description='Plane Segmentation Package',
+    description='TODO: Package description',
     license='TODO: License declaration',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'plane_segmentation = pointcloud_plane_segmentation.plane_segmentation:main'
+            'plane_detection = pointcloud_plane_detection.plane_detection:main'
         ],
     },
 )
