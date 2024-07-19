@@ -1,0 +1,28 @@
+# Ignore build and install directories
+/build/
+/install/
+/log/
+/install_isolated/
+/build_isolated/
+/devel_isolated/
+/devel/
+/log/
+
+# Ignore ROS2 package-specific build directories
+*/build/
+*/install/
+*/log/
+*/install_isolated/
+*/build_isolated/
+*/devel_isolated/
+*/devel/
+*/log/
+
+# Ignore other common files and directories
+.DS_Store
+*.pyc
+*.pyo
+*.out
+*.log
+.vscode/
+.idea/
