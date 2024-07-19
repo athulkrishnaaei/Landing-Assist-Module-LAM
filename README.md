@@ -30,6 +30,9 @@ ros2 run pointcloud_publisher pointcloud_publisher --ros-args -p file_path:=/pat
 
 You can apply different plane detection methods to the published point cloud using the pointcloud_plane_detection package.
 
+source your environment before running the code 
+cd ros2 
+source install/setup.bash
 ## 1 RANSAC
 To apply the RANSAC method:
 
@@ -45,7 +48,7 @@ To apply the PLANAR PATCH method:
 
 ros2 run pointcloud_plane_detection plane_detection --ros-args -p method:=planar_patch
 
-## Using pointcloud from Unreal engine 
+## Using Ros2 bag file created from Unreal engine 
 
 ## Prerequisites
 1. git clone https://github.com/athulkrishnaaei/Landing-Assist-Module-LAM.git
@@ -65,6 +68,10 @@ You can apply different plane detection methods to the published point cloud usi
 
 To avoid using remap you can manaully change the topic name in plane_detection.py [a link] https://github.com/athulkrishnaaei/Landing-Assist-Module-LAM/blob/develop/ros2/src/pointcloud_plane_segmentation/pointcloud_plane_segmentation/plane_segmentation.py 
 ## change line 190
+
+source your environment before running the code 
+cd ros2 
+source install/setup.bash
 
 ## 1 RANSAC
 To apply the RANSAC method:
