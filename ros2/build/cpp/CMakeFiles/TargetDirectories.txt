@@ -1,2 +1,0 @@
-/home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/build/cpp/CMakeFiles/rebuild_cache.dir
-/home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/build/cpp/CMakeFiles/edit_cache.dir

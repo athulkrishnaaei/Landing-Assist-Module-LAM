@@ -1,0 +1,17 @@
+# Ignore build artifacts
+ros2/build/
+ros2/install/
+ros2/log/
+ros2/build_isolated/
+ros2/install_isolated/
+
+ros2/colcon/
+ros2/colcon-core/
+ros2/log/latest/
+ros2/log/*.log
+
+
+
+# Ignore editor-specific files
+ros2/.vscode/
+
