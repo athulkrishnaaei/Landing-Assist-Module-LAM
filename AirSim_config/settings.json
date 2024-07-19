@@ -1,0 +1,109 @@
+{
+  "SeeDocsAt": "https://github.com/Microsoft/AirSim/blob/main/docs/settings.md",
+  "SettingsVersion": 1.2,
+  "SimMode": "Multirotor",
+  "ViewMode": "SpringArmChase",
+  "ClockSpeed": 1,
+  "ClockType": "SteppableClock",
+  "Vehicles": {
+    "PX4": {
+      "VehicleType": "PX4Multirotor",
+      "DefaultVehicleState": "Armed",
+      "EnableCollisionPassthrogh": false,
+      "EnableCollisions": true,
+      "AllowAPIAlways": true,
+      "UseSerial": false,
+      "LockStep": true,
+      "UseTcp": true,
+      "TcpPort": 4560,
+      "ControlPortLocal": 14540,
+      "ControlPortRemote": 14580,
+      "RC": {
+        "RemoteControlID": 0,
+        "AllowAPIWhenDisconnected": false
+      },
+      "Sensors": {
+        "Imu": {
+          "SensorType": 2,
+          "Enabled": true
+        },
+        "Barometer": {
+          "SensorType": 1,
+          "Enabled": true,
+          "PressureFactorSigma": 0.0001825
+        },
+        "Lidar1": {
+          "SensorType": 6,
+          "Enabled": true,
+          "NumberOfChannels": 32,
+          "Range": 200,
+          "PointsPerSecond": 20000,
+          "X": 0, "Y": 0, "Z": -1,
+          "Roll": 0, "Pitch": -90, "Yaw": 0,
+          "VerticalFOVUpper": 90,
+          "VerticalFOVLower": -90,
+          "HorizontalFOVStart": -180,
+          "HorizontalFOVEnd": 180,
+          "DrawDebugPoints": true,
+          "DataFrame": "SensorLocalFrame",
+          "PointCloudSettings": {
+            "ColorMode": "Intensity",
+            "PointSize": 1.0,
+            "FilterNoise": true,
+            "Smoothing": true
+          }
+        }
+      },
+      "Cameras": {
+        "bottom_center_custom": {
+          "CaptureSettings": [
+            {
+              "PublishToRos": 1,
+              "ImageType": 0,
+              "Width": 1920,
+              "Height": 1080,
+              "FOV_Degrees": 90,
+              "TargetGamma": 0
+            }
+          ],
+          "X": 0.50, "Y": 0.0, "Z": 0.10,
+          "Pitch": -90.0, "Roll": 0.0, "Yaw": 0.0
+        },
+        "bottom_center_depth_custom": {
+          "CaptureSettings": [
+            {
+              "PublishToRos": 1,
+              "ImageType": 2,
+              "PixelsAsFloat": true,
+              "Width": 1920,
+              "Height": 1080,
+              "FOV_Degrees": 90,
+              "TargetGamma": 0
+            }
+          ],
+          "X": 0.50, "Y": 0, "Z": 0.10,
+          "Pitch": -90.0, "Roll": 0.0, "Yaw": 0.0
+        }
+      },
+      "Parameters": {
+        "NAV_RCL_ACT": 0,
+        "NAV_DLL_ACT": 0,
+        "COM_OBL_ACT": 1,
+        "LPE_LAT": 47.641468,
+        "LPE_LON": -122.140165
+      },
+      "X": 2, "Y": 0, "Z": 0,
+      "Pitch": 0, "Roll": 0, "Yaw": 0
+    }
+  },
+  "LiDARSettings": {
+    "PointDensity": 0.01,
+    "MaxDistance": 1500.0,
+    "MinDistance": 0.05,
+    "IntensityRange": [0, 255]
+  },
+  "SubWindows": [
+    { "WindowID": 0, "ImageType": 0, "CameraName": "bottom_center_custom", "Visible": true },
+    { "WindowID": 2, "ImageType": 3, "CameraName": "bottom_center_depth_custom", "Visible": true }
+  ]
+}
