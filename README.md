@@ -63,7 +63,7 @@ To see detected planed change the topic name under pointcloud2 to /detected_plan
 3. git checkout develop
 4. cd ros2
 5. colcon build
-6. Download the example ros bag file from [here] https://drive.google.com/drive/folders/1rGiJMeT2GD3_851eh8hQ2LQEv7G3B-eL?usp=sharing
+6. Download the example ros bag file from [here] https://drive.google.com/drive/folders/1BH9uTZXAa8oBXjFqKlQPvcEAp5Yt7zXi?usp=sharing
 
 ## Publishing Your Point Cloud
 1. cd my_bag
@@ -96,8 +96,9 @@ To apply the PLANAR PATCH method:
 ros2 run pointcloud_plane_detection plane_detection --ros-args -p method:=planar_patch --remap /pointcloud:=/airsim_node/PX4/lidar/
 
 ## 4 Launch rviz
-rviz2 -d /path_to_defaul.rviz file 
-default.rviz is pointcloud_plane_detection/config/default.rviz
+rviz2 -d /path_to_config.rviz file 
+config.rviz is located at pointcloud_plane_detection/config/default.rviz
 
-To see pointcloud change the topic name under pointcloud2 to /pointcloud
-To see detected planed change the topic name under pointcloud2 to /detected_planes
+To see pointcloud change the topic name under pointcloud2 to /airsim_node/PX4/lidar/Lidar1 and change fixed frame to world_ned
+
+To see detected planed change the topic name under pointcloud2 to /detected_planes and change fixed frame into map
