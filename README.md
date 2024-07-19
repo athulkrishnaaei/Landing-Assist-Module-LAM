@@ -48,6 +48,13 @@ To apply the PLANAR PATCH method:
 
 ros2 run pointcloud_plane_detection plane_detection --ros-args -p method:=planar_patch
 
+## 4 Launch rviz
+rviz2 -d /path_to_defaul.rviz file 
+default.rviz is pointcloud_plane_detection/config/default.rviz
+
+To see pointcloud change the topic name under pointcloud2 to /pointcloud
+To see detected planed change the topic name under pointcloud2 to /detected_planes
+
 ## Using Ros2 bag file created from Unreal engine 
 
 ## Prerequisites
@@ -87,3 +94,10 @@ ros2 run pointcloud_plane_detection plane_detection --ros-args -p method:=prosac
 To apply the PLANAR PATCH method:
 
 ros2 run pointcloud_plane_detection plane_detection --ros-args -p method:=planar_patch --remap /pointcloud:=/airsim_node/PX4/lidar/
+
+## 4 Launch rviz
+rviz2 -d /path_to_defaul.rviz file 
+default.rviz is pointcloud_plane_detection/config/default.rviz
+
+To see pointcloud change the topic name under pointcloud2 to /pointcloud
+To see detected planed change the topic name under pointcloud2 to /detected_planes
