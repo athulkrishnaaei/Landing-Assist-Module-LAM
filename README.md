@@ -88,16 +88,16 @@ ros2 run pointcloud_plane_detection plane_detection --ros-args -p method:=ransac
 ## 2 PROSAC
 To apply the PROSAC method:
 
-ros2 run pointcloud_plane_detection plane_detection --ros-args -p method:=prosac --remap /pointcloud:=/airsim_node/PX4/lidar/
+ros2 run pointcloud_plane_detection plane_detection --ros-args -p method:=prosac --remap /pointcloud:=/airsim_node/PX4/lidar/Lidar1
 
 ## 3 PLANAR PATCH
 To apply the PLANAR PATCH method:
 
-ros2 run pointcloud_plane_detection plane_detection --ros-args -p method:=planar_patch --remap /pointcloud:=/airsim_node/PX4/lidar/
+ros2 run pointcloud_plane_detection plane_detection --ros-args -p method:=planar_patch --remap /pointcloud:=/airsim_node/PX4/lidar/Lidar1
 
 ## 4 Launch rviz
-rviz2 -d /path_to_config.rviz file 
-config.rviz is located at pointcloud_plane_detection/config/default.rviz
+rviz2 -d /path_to_default.rviz file 
+default.rviz is located at pointcloud_plane_detection/config/
 
 To see pointcloud change the topic name under pointcloud2 to /airsim_node/PX4/lidar/Lidar1 and change fixed frame to world_ned
 
