@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Ignore build and install directories
 ros2/build/
 ros2/install/
