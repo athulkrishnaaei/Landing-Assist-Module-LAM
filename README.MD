@@ -82,6 +82,11 @@ ros2 bag play my_bag or ros2 bag play /path_to_bag_file
   rviz2 -d /path_to/rosbag.rviz file 
   rosbag.rviz is located at rviz_config
 
+  To see pointcloud change the topic name under pointcloud2 to /airsim_node/PX4/lidar/Lidar1 and change fixed frame to world_enu
+
+  To see detected planes change the topic name under pointcloud2 to /detected_planes and change fixed frame into map
+
+
 ## Plane Detection Methods
 
 You can apply different plane detection methods to the published point cloud using the pointcloud_plane_detection package.
@@ -113,14 +118,6 @@ To apply the PLANAR PATCH method:
 ```bash
 ros2 run pointcloud_plane_detection plane_detection --ros-args -p method:=planar_patch --remap /pointcloud:=/airsim_node/PX4/lidar/Lidar1
 ```
-
-## 4 Launch rviz
-rviz2 -d /path_to/planeDetection.rviz file 
-planeDetection.rviz is located at rviz_config
-
-To see pointcloud change the topic name under pointcloud2 to /airsim_node/PX4/lidar/Lidar1 and change fixed frame to world_ned
-
-To see detected planed change the topic name under pointcloud2 to /detected_planes and change fixed frame into map
 
 [![Applying plane detection with rosbag file](https://img.youtube.com/vi/XihAnF-MoZY/0.jpg)](https://youtu.be/XihAnF-MoZY?si=Vi4I29JDdzPJ1LcO)
 
@@ -173,7 +170,7 @@ ros2 launch octomap_server2 octomap_server_launch.py
 2. Launch rviz2
    octomap.rviz file is in rviz_config folder
    rviz2 -d /path_to/octomap.rviz file 
-   rviz2
+   
 
 3. cd my_bag
 
