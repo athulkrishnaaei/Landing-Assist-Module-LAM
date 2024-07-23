@@ -1,0 +1,172 @@
+[0.037s] Invoking command in '/home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/livox_ros_driver2': /usr/bin/cmake /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/src/FAST_LIO_ROS2/livox_ros_driver2 -DCMAKE_INSTALL_PREFIX=/home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/livox_ros_driver2
+[0.239s] -- The C compiler identification is GNU 9.4.0
+[0.240s] -- The CXX compiler identification is GNU 9.4.0
+[0.241s] -- Check for working C compiler: /usr/bin/cc
+[0.243s] -- Check for working C compiler: /usr/bin/cc -- works
+[0.243s] -- Detecting C compiler ABI info
+[0.305s] -- Detecting C compiler ABI info - done
+[0.312s] -- Detecting C compile features
+[0.313s] -- Detecting C compile features - done
+[0.314s] -- Check for working CXX compiler: /usr/bin/c++
+[0.400s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[0.401s] -- Detecting CXX compiler ABI info
+[0.483s] -- Detecting CXX compiler ABI info - done
+[0.492s] -- Detecting CXX compile features
+[0.493s] -- Detecting CXX compile features - done
+[0.493s] -- livox_ros_driver2 version: 1.0.0
+[0.495s] -- Found ament_cmake_auto: 0.9.12 (/opt/ros/foxy/share/ament_cmake_auto/cmake)
+[0.527s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[0.527s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.704s] CMake Error: File /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/src/FAST_LIO_ROS2/livox_ros_driver2/package.xml does not exist.
+[0.705s] CMake Error at /opt/ros/foxy/share/ament_cmake_core/cmake/core/stamp.cmake:24 (configure_file):
+[0.705s]   configure_file Problem configuring file
+[0.705s] Call Stack (most recent call first):
+[0.705s]   /opt/ros/foxy/share/ament_cmake_core/cmake/core/ament_package_xml.cmake:73 (stamp)
+[0.705s]   /opt/ros/foxy/share/ament_cmake_core/cmake/core/ament_package_xml.cmake:49 (_ament_package_xml)
+[0.705s]   /opt/ros/foxy/share/ament_cmake_auto/cmake/ament_auto_find_build_dependencies.cmake:42 (ament_package_xml)
+[0.705s]   CMakeLists.txt:225 (ament_auto_find_build_dependencies)
+[0.705s] 
+[0.705s] 
+[0.719s] -- Checking for module 'eigen3'
+[0.746s] --   Found eigen3, version 3.3.7
+[0.811s] -- Found Eigen: /usr/include/eigen3 (Required is at least version "3.1") 
+[0.811s] -- Eigen found (include: /usr/include/eigen3, version: 3.3.7)
+[0.828s] -- Found Boost: /usr/include (found suitable version "1.71.0", minimum required is "1.55.0") found components: system filesystem date_time iostreams regex 
+[0.848s] -- Checking for module 'flann'
+[0.873s] --   Found flann, version 1.9.1
+[0.947s] -- Found FLANN: /usr/lib/x86_64-linux-gnu/libflann_cpp.so  
+[0.989s] -- The imported target "vtkParseOGLExt" references the file
+[0.990s]    "/usr/bin/vtkParseOGLExt-7.1"
+[0.990s] but this file does not exist.  Possible reasons include:
+[0.990s] * The file was deleted, renamed, or moved to another location.
+[0.990s] * An install or uninstall procedure did not complete successfully.
+[0.990s] * The installation package was faulty and contained
+[0.990s]    "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+[0.990s] but not all the files it references.
+[0.991s] 
+[0.991s] -- The imported target "vtkRenderingPythonTkWidgets" references the file
+[0.991s]    "/usr/lib/x86_64-linux-gnu/libvtkRenderingPythonTkWidgets.so"
+[0.991s] but this file does not exist.  Possible reasons include:
+[0.991s] * The file was deleted, renamed, or moved to another location.
+[0.991s] * An install or uninstall procedure did not complete successfully.
+[0.991s] * The installation package was faulty and contained
+[0.991s]    "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+[0.992s] but not all the files it references.
+[0.992s] 
+[0.992s] -- The imported target "vtk" references the file
+[0.992s]    "/usr/bin/vtk"
+[0.992s] but this file does not exist.  Possible reasons include:
+[0.992s] * The file was deleted, renamed, or moved to another location.
+[0.992s] * An install or uninstall procedure did not complete successfully.
+[0.992s] * The installation package was faulty and contained
+[0.992s]    "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+[0.992s] but not all the files it references.
+[0.992s] 
+[0.992s] -- The imported target "pvtk" references the file
+[0.993s]    "/usr/bin/pvtk"
+[0.993s] but this file does not exist.  Possible reasons include:
+[0.993s] * The file was deleted, renamed, or moved to another location.
+[0.993s] * An install or uninstall procedure did not complete successfully.
+[0.993s] * The installation package was faulty and contained
+[0.993s]    "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+[0.993s] but not all the files it references.
+[0.993s] 
+[1.008s] -- Checking for module 'libusb-1.0'
+[1.029s] --   Found libusb-1.0, version 1.0.23
+[1.107s] -- Found USB_10: /usr/lib/x86_64-linux-gnu/libusb-1.0.so  
+[1.200s] -- Found OpenNI: /usr/lib/libOpenNI.so  
+[1.200s] -- OpenNI found (include: /usr/include/ni, lib: /usr/lib/libOpenNI.so)
+[1.304s] -- Found OpenNI2: /usr/lib/libOpenNI2.so  
+[1.304s] -- OpenNI2 found (include: /usr/include/openni2, lib: /usr/lib/libOpenNI2.so)
+[1.304s] ** WARNING ** io features related to pcap will be disabled
+[1.304s] ** WARNING ** io features related to png will be disabled
+[1.321s] -- Found libusb-1.0: /usr/include  
+[1.321s] ** WARNING ** io features related to libusb-1.0 will be disabled
+[1.328s] -- OpenNI found (include: /usr/include/ni, lib: /usr/lib/libOpenNI.so)
+[1.334s] -- OpenNI2 found (include: /usr/include/openni2, lib: /usr/lib/libOpenNI2.so)
+[1.355s] -- Found Qhull: optimized;/usr/lib/x86_64-linux-gnu/libqhull.so;debug;/usr/lib/x86_64-linux-gnu/libqhull.so  
+[1.355s] -- QHULL found (include: /usr/include, lib: optimized;/usr/lib/x86_64-linux-gnu/libqhull.so;debug;/usr/lib/x86_64-linux-gnu/libqhull.so)
+[1.362s] -- OpenNI found (include: /usr/include/ni, lib: /usr/lib/libOpenNI.so)
+[1.371s] -- looking for PCL_COMMON
+[1.372s] -- Found PCL_COMMON: /usr/lib/x86_64-linux-gnu/libpcl_common.so  
+[1.372s] -- looking for PCL_KDTREE
+[1.373s] -- Found PCL_KDTREE: /usr/lib/x86_64-linux-gnu/libpcl_kdtree.so  
+[1.373s] -- looking for PCL_OCTREE
+[1.374s] -- Found PCL_OCTREE: /usr/lib/x86_64-linux-gnu/libpcl_octree.so  
+[1.374s] -- looking for PCL_SEARCH
+[1.375s] -- Found PCL_SEARCH: /usr/lib/x86_64-linux-gnu/libpcl_search.so  
+[1.375s] -- looking for PCL_SAMPLE_CONSENSUS
+[1.376s] -- Found PCL_SAMPLE_CONSENSUS: /usr/lib/x86_64-linux-gnu/libpcl_sample_consensus.so  
+[1.376s] -- looking for PCL_FILTERS
+[1.377s] -- Found PCL_FILTERS: /usr/lib/x86_64-linux-gnu/libpcl_filters.so  
+[1.377s] -- looking for PCL_2D
+[1.377s] -- Found PCL_2D: /usr/include/pcl-1.10  
+[1.377s] -- looking for PCL_GEOMETRY
+[1.377s] -- Found PCL_GEOMETRY: /usr/include/pcl-1.10  
+[1.378s] -- looking for PCL_IO
+[1.378s] -- Found PCL_IO: /usr/lib/x86_64-linux-gnu/libpcl_io.so  
+[1.378s] -- looking for PCL_FEATURES
+[1.379s] -- Found PCL_FEATURES: /usr/lib/x86_64-linux-gnu/libpcl_features.so  
+[1.379s] -- looking for PCL_ML
+[1.380s] -- Found PCL_ML: /usr/lib/x86_64-linux-gnu/libpcl_ml.so  
+[1.380s] -- looking for PCL_SEGMENTATION
+[1.381s] -- Found PCL_SEGMENTATION: /usr/lib/x86_64-linux-gnu/libpcl_segmentation.so  
+[1.381s] -- looking for PCL_VISUALIZATION
+[1.382s] -- Found PCL_VISUALIZATION: /usr/lib/x86_64-linux-gnu/libpcl_visualization.so  
+[1.382s] -- looking for PCL_SURFACE
+[1.383s] -- Found PCL_SURFACE: /usr/lib/x86_64-linux-gnu/libpcl_surface.so  
+[1.383s] -- looking for PCL_REGISTRATION
+[1.384s] -- Found PCL_REGISTRATION: /usr/lib/x86_64-linux-gnu/libpcl_registration.so  
+[1.384s] -- looking for PCL_KEYPOINTS
+[1.385s] -- Found PCL_KEYPOINTS: /usr/lib/x86_64-linux-gnu/libpcl_keypoints.so  
+[1.385s] -- looking for PCL_TRACKING
+[1.386s] -- Found PCL_TRACKING: /usr/lib/x86_64-linux-gnu/libpcl_tracking.so  
+[1.386s] -- looking for PCL_RECOGNITION
+[1.387s] -- Found PCL_RECOGNITION: /usr/lib/x86_64-linux-gnu/libpcl_recognition.so  
+[1.387s] -- looking for PCL_STEREO
+[1.388s] -- Found PCL_STEREO: /usr/lib/x86_64-linux-gnu/libpcl_stereo.so  
+[1.388s] -- looking for PCL_APPS
+[1.389s] -- Found PCL_APPS: /usr/lib/x86_64-linux-gnu/libpcl_apps.so  
+[1.389s] -- looking for PCL_IN_HAND_SCANNER
+[1.390s] -- Found PCL_IN_HAND_SCANNER: /usr/include/pcl-1.10  
+[1.390s] -- looking for PCL_POINT_CLOUD_EDITOR
+[1.390s] -- Found PCL_POINT_CLOUD_EDITOR: /usr/include/pcl-1.10  
+[1.391s] -- looking for PCL_OUTOFCORE
+[1.391s] -- Found PCL_OUTOFCORE: /usr/lib/x86_64-linux-gnu/libpcl_outofcore.so  
+[1.392s] -- looking for PCL_PEOPLE
+[1.392s] -- Found PCL_PEOPLE: /usr/lib/x86_64-linux-gnu/libpcl_people.so  
+[1.393s] -- Found PCL: pcl_common;pcl_kdtree;pcl_octree;pcl_search;pcl_sample_consensus;pcl_filters;pcl_io;pcl_features;pcl_ml;pcl_segmentation;pcl_visualization;pcl_surface;pcl_registration;pcl_keypoints;pcl_tracking;pcl_recognition;pcl_stereo;pcl_apps;pcl_outofcore;pcl_people;/usr/lib/libboost_system.so;/usr/lib/libboost_filesystem.so;/usr/lib/libboost_date_time.so;/usr/lib/libboost_iostreams.so;/usr/lib/libboost_regex.so;optimized;/usr/lib/x86_64-linux-gnu/libqhull.so;debug;/usr/lib/x86_64-linux-gnu/libqhull.so;/usr/lib/libOpenNI.so;/usr/lib/libOpenNI2.so;vtkChartsCore;vtkCommonColor;vtkCommonCore;vtksys;vtkCommonDataModel;vtkCommonMath;vtkCommonMisc;vtkCommonSystem;vtkCommonTransforms;vtkCommonExecutionModel;vtkFiltersGeneral;vtkCommonComputationalGeometry;vtkFiltersCore;vtkInfovisCore;vtkFiltersExtraction;vtkFiltersStatistics;vtkImagingFourier;vtkImagingCore;vtkalglib;vtkRenderingContext2D;vtkRenderingCore;vtkFiltersGeometry;vtkFiltersSources;vtkRenderingFreeType;/usr/lib/x86_64-linux-gnu/libfreetype.so;/usr/lib/x86_64-linux-gnu/libz.so;vtkFiltersModeling;vtkImagingSources;vtkInteractionStyle;vtkInteractionWidgets;vtkFiltersHybrid;vtkImagingColor;vtkImagingGeneral;vtkImagingHybrid;vtkIOImage;vtkDICOMParser;vtkmetaio;/usr/lib/x86_64-linux-gnu/libjpeg.so;/usr/lib/x86_64-linux-gnu/libpng.so;/usr/lib/x86_64-linux-gnu/libtiff.so;vtkRenderingAnnotation;vtkRenderingVolume;vtkIOXML;vtkIOCore;vtkIOXMLParser;/usr/lib/x86_64-linux-gnu/libexpat.so;vtkIOGeometry;vtkIOLegacy;vtkIOPLY;vtkRenderingLOD;vtkViewsContext2D;vtkViewsCore;vtkRenderingContextOpenGL2;vtkRenderingOpenGL2;FLANN::FLANN  
+[1.395s] -- Found std_msgs: 2.0.5 (/opt/ros/foxy/share/std_msgs/cmake)
+[1.419s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.426s] -- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[1.566s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[1.598s] -- Found FastRTPS: /opt/ros/foxy/include  
+[1.677s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.715s] -- Found rosidl_default_generators: 1.0.1 (/opt/ros/foxy/share/rosidl_default_generators/cmake)
+[1.729s] -- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.1") 
+[1.729s] -- Checking for module 'apr-1'
+[1.750s] --   Found apr-1, version 1.6.5
+[1.812s] /usr/include/apr-1.0
+[1.812s] apr-1
+[1.835s] -- Found PythonInterp: /usr/bin/python3 (found version "3.8.10") 
+[1.898s] CMake Error: File /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/src/FAST_LIO_ROS2/livox_ros_driver2/package.xml does not exist.
+[1.899s] CMake Error at /opt/ros/foxy/share/ament_cmake_core/cmake/core/stamp.cmake:24 (configure_file):
+[1.899s]   configure_file Problem configuring file
+[1.899s] Call Stack (most recent call first):
+[1.899s]   /opt/ros/foxy/share/ament_cmake_core/cmake/core/ament_package_xml.cmake:73 (stamp)
+[1.899s]   /opt/ros/foxy/share/ament_cmake_core/cmake/core/ament_package_xml.cmake:49 (_ament_package_xml)
+[1.899s]   /opt/ros/foxy/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:226 (ament_package_xml)
+[1.899s]   CMakeLists.txt:241 (rosidl_generate_interfaces)
+[1.899s] 
+[1.899s] 
+[1.899s] CMake Error at /opt/ros/foxy/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:229 (message):
+[1.899s]   Packages installing interfaces must include
+[1.900s]   '<member_of_group>rosidl_interface_packages</member_of_group>' in their
+[1.900s]   package.xml
+[1.900s] Call Stack (most recent call first):
+[1.900s]   CMakeLists.txt:241 (rosidl_generate_interfaces)
+[1.900s] 
+[1.900s] 
+[1.901s] -- Configuring incomplete, errors occurred!
+[1.901s] See also "/home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/livox_ros_driver2/CMakeFiles/CMakeOutput.log".
+[1.913s] Invoked command in '/home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/livox_ros_driver2' returned '1': /usr/bin/cmake /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/src/FAST_LIO_ROS2/livox_ros_driver2 -DCMAKE_INSTALL_PREFIX=/home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/livox_ros_driver2
