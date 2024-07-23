@@ -1,0 +1,34 @@
+[0.034s] Invoking command in '/home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/cpp': /usr/bin/cmake /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/src/cpp -DCMAKE_INSTALL_PREFIX=/home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/cpp
+[0.235s] -- The C compiler identification is GNU 9.4.0
+[0.235s] -- The CXX compiler identification is GNU 9.4.0
+[0.235s] -- Check for working C compiler: /usr/bin/cc
+[0.235s] CMake Warning (dev) in CMakeLists.txt:
+[0.235s]   No project() command is present.  The top-level CMakeLists.txt file must
+[0.236s]   contain a literal, direct call to the project() command.  Add a line of
+[0.236s]   code such as
+[0.236s] 
+[0.236s]     project(ProjectName)
+[0.236s] 
+[0.236s]   near the top of the file, but after cmake_minimum_required().
+[0.236s] 
+[0.236s]   CMake is pretending there is a "project(Project)" command on the first
+[0.236s]   line.
+[0.236s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[0.236s] 
+[0.244s] -- Check for working C compiler: /usr/bin/cc -- works
+[0.244s] -- Detecting C compiler ABI info
+[0.311s] -- Detecting C compiler ABI info - done
+[0.321s] -- Detecting C compile features
+[0.322s] -- Detecting C compile features - done
+[0.325s] -- Check for working CXX compiler: /usr/bin/c++
+[0.409s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[0.411s] -- Detecting CXX compiler ABI info
+[0.492s] -- Detecting CXX compiler ABI info - done
+[0.504s] -- Detecting CXX compile features
+[0.504s] -- Detecting CXX compile features - done
+[0.505s] -- Configuring done
+[0.506s] -- Generating done
+[0.507s] -- Build files have been written to: /home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/cpp
+[0.510s] Invoked command in '/home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/cpp' returned '0': /usr/bin/cmake /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/src/cpp -DCMAKE_INSTALL_PREFIX=/home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/cpp
+[0.514s] Invoking command in '/home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/cpp': /usr/bin/cmake --build /home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/cpp -- -j16 -l16
+[0.561s] Invoked command in '/home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/cpp' returned '0': /usr/bin/cmake --build /home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/cpp -- -j16 -l16

@@ -1,0 +1,54 @@
+[0.953s] Invoking command in '/home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/src/py/pointcloud_plane_detection': PYTHONPATH=/home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/pointcloud_plane_detection/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/pointcloud_plane_detection/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../../build/pointcloud_plane_detection build --build-base /home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/pointcloud_plane_detection/build install --record /home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/pointcloud_plane_detection/install.log --install-scripts $base/lib/pointcloud_plane_detection --single-version-externally-managed install_data
+[1.060s] /home/airsim_user/.local/lib/python3.8/site-packages/setuptools/dist.py:478: SetuptoolsDeprecationWarning: Invalid dash-separated options
+[1.060s] !!
+[1.060s] 
+[1.060s]         ********************************************************************************
+[1.060s]         Usage of dash-separated 'script-dir' will not be supported in future
+[1.060s]         versions. Please use the underscore name 'script_dir' instead.
+[1.060s] 
+[1.060s]         By 2024-Sep-26, you need to update your project and remove deprecated calls
+[1.060s]         or your builds will no longer be supported.
+[1.060s] 
+[1.060s]         See https://setuptools.pypa.io/en/latest/userguide/declarative_config.html for details.
+[1.060s]         ********************************************************************************
+[1.060s] 
+[1.060s] !!
+[1.060s]   opt = self.warn_dash_deprecation(opt, section)
+[1.154s] running egg_info
+[1.155s] creating ../../../../build/pointcloud_plane_detection/pointcloud_plane_detection.egg-info
+[1.168s] writing ../../../../build/pointcloud_plane_detection/pointcloud_plane_detection.egg-info/PKG-INFO
+[1.169s] writing dependency_links to ../../../../build/pointcloud_plane_detection/pointcloud_plane_detection.egg-info/dependency_links.txt
+[1.169s] writing entry points to ../../../../build/pointcloud_plane_detection/pointcloud_plane_detection.egg-info/entry_points.txt
+[1.169s] writing requirements to ../../../../build/pointcloud_plane_detection/pointcloud_plane_detection.egg-info/requires.txt
+[1.169s] writing top-level names to ../../../../build/pointcloud_plane_detection/pointcloud_plane_detection.egg-info/top_level.txt
+[1.256s] writing manifest file '../../../../build/pointcloud_plane_detection/pointcloud_plane_detection.egg-info/SOURCES.txt'
+[1.286s] reading manifest file '../../../../build/pointcloud_plane_detection/pointcloud_plane_detection.egg-info/SOURCES.txt'
+[1.287s] writing manifest file '../../../../build/pointcloud_plane_detection/pointcloud_plane_detection.egg-info/SOURCES.txt'
+[1.287s] running build
+[1.287s] running build_py
+[1.288s] creating /home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/pointcloud_plane_detection/build
+[1.288s] creating /home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/pointcloud_plane_detection/build/lib
+[1.288s] creating /home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/pointcloud_plane_detection/build/lib/pointcloud_plane_detection
+[1.288s] copying pointcloud_plane_detection/__init__.py -> /home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/pointcloud_plane_detection/build/lib/pointcloud_plane_detection
+[1.288s] copying pointcloud_plane_detection/plane_detection.py -> /home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/pointcloud_plane_detection/build/lib/pointcloud_plane_detection
+[1.288s] copying pointcloud_plane_detection/plane_detection.py -> /home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/pointcloud_plane_detection/build/lib/pointcloud_plane_detection
+[1.288s] copying pointcloud_plane_detection/__init__.py -> /home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/pointcloud_plane_detection/build/lib/pointcloud_plane_detection
+[1.289s] running install
+[1.295s] running install_lib
+[1.313s] creating /home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/pointcloud_plane_detection/lib/python3.8/site-packages/pointcloud_plane_detection
+[1.313s] copying /home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/pointcloud_plane_detection/build/lib/pointcloud_plane_detection/plane_detection.py -> /home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/pointcloud_plane_detection/lib/python3.8/site-packages/pointcloud_plane_detection
+[1.313s] copying /home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/pointcloud_plane_detection/build/lib/pointcloud_plane_detection/__init__.py -> /home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/pointcloud_plane_detection/lib/python3.8/site-packages/pointcloud_plane_detection
+[1.314s] byte-compiling /home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/pointcloud_plane_detection/lib/python3.8/site-packages/pointcloud_plane_detection/plane_detection.py to plane_detection.cpython-38.pyc
+[1.316s] byte-compiling /home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/pointcloud_plane_detection/lib/python3.8/site-packages/pointcloud_plane_detection/__init__.py to __init__.cpython-38.pyc
+[1.316s] running install_data
+[1.316s] creating /home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/pointcloud_plane_detection/share/ament_index
+[1.316s] creating /home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/pointcloud_plane_detection/share/ament_index/resource_index
+[1.316s] creating /home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/pointcloud_plane_detection/share/ament_index/resource_index/packages
+[1.316s] copying resource/pointcloud_plane_detection -> /home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/pointcloud_plane_detection/share/ament_index/resource_index/packages
+[1.316s] copying package.xml -> /home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/pointcloud_plane_detection/share/pointcloud_plane_detection
+[1.316s] running install_egg_info
+[1.333s] Copying ../../../../build/pointcloud_plane_detection/pointcloud_plane_detection.egg-info to /home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/pointcloud_plane_detection/lib/python3.8/site-packages/pointcloud_plane_detection-0.0.0-py3.8.egg-info
+[1.334s] running install_scripts
+[1.367s] Installing plane_detection script to /home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/pointcloud_plane_detection/lib/pointcloud_plane_detection
+[1.368s] writing list of installed files to '/home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/pointcloud_plane_detection/install.log'
+[1.394s] Invoked command in '/home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/src/py/pointcloud_plane_detection' returned '0': PYTHONPATH=/home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/pointcloud_plane_detection/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/pointcloud_plane_detection/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../../build/pointcloud_plane_detection build --build-base /home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/pointcloud_plane_detection/build install --record /home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/pointcloud_plane_detection/install.log --install-scripts $base/lib/pointcloud_plane_detection --single-version-externally-managed install_data
