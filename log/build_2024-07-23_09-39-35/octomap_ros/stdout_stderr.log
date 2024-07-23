@@ -1,0 +1,30 @@
+[ 25%] Built target gtest_main
+[ 75%] Built target gtest
+[ 75%] Built target octomap_ros
+[100%] Built target test_octomap_ros
+-- Install configuration: ""
+-- Installing: /home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/octomap_ros/include
+-- Installing: /home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/octomap_ros/include/octomap_ros
+-- Installing: /home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/octomap_ros/include/octomap_ros/conversions.hpp
+-- Installing: /home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/octomap_ros/share/octomap_ros/environment/library_path.sh
+-- Installing: /home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/octomap_ros/share/octomap_ros/environment/library_path.dsv
+-- Installing: /home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/octomap_ros/lib/liboctomap_ros.so
+-- Set runtime path of "/home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/octomap_ros/lib/liboctomap_ros.so" to ""
+-- Installing: /home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/octomap_ros/share/ament_index/resource_index/package_run_dependencies/octomap_ros
+-- Installing: /home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/octomap_ros/share/ament_index/resource_index/parent_prefix_path/octomap_ros
+-- Installing: /home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/octomap_ros/share/octomap_ros/environment/ament_prefix_path.sh
+-- Installing: /home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/octomap_ros/share/octomap_ros/environment/ament_prefix_path.dsv
+-- Installing: /home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/octomap_ros/share/octomap_ros/environment/path.sh
+-- Installing: /home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/octomap_ros/share/octomap_ros/environment/path.dsv
+-- Installing: /home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/octomap_ros/share/octomap_ros/local_setup.bash
+-- Installing: /home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/octomap_ros/share/octomap_ros/local_setup.sh
+-- Installing: /home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/octomap_ros/share/octomap_ros/local_setup.zsh
+-- Installing: /home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/octomap_ros/share/octomap_ros/local_setup.dsv
+-- Installing: /home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/octomap_ros/share/octomap_ros/package.dsv
+-- Installing: /home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/octomap_ros/share/ament_index/resource_index/packages/octomap_ros
+-- Installing: /home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/octomap_ros/share/octomap_ros/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Installing: /home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/octomap_ros/share/octomap_ros/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Installing: /home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/octomap_ros/share/octomap_ros/cmake/ament_cmake_export_libraries-extras.cmake
+-- Installing: /home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/octomap_ros/share/octomap_ros/cmake/octomap_rosConfig.cmake
+-- Installing: /home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/octomap_ros/share/octomap_ros/cmake/octomap_rosConfig-version.cmake
+-- Installing: /home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/octomap_ros/share/octomap_ros/package.xml

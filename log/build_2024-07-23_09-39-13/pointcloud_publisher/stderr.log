@@ -1,0 +1,5 @@
+  File "/home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/pointcloud_publisher/lib/python3.8/site-packages/pointcloud_publisher/setup.py", line 24
+    <<<<<<< HEAD
+    ^
+SyntaxError: invalid syntax
+

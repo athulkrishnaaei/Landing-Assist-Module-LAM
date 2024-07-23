@@ -1,0 +1,4 @@
+Invoking command in '/home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/octomap_ros': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/octomap_ros -- -j16 -l16
+Invoked command in '/home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/octomap_ros' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/octomap_ros -- -j16 -l16
+Invoking command in '/home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/octomap_ros': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/octomap_ros
+Invoked command in '/home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/octomap_ros' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/octomap_ros
