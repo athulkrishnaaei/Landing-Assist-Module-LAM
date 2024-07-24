@@ -1,3 +1,0 @@
-[console_scripts]
-pointcloud_publisher = pointcloud_publisher.pointcloud_publisher:main
-pointcloud_subscriber = pointcloud_publisher.pointcloud_subscriber:main

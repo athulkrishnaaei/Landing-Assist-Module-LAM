@@ -57,11 +57,14 @@ To see the pointcloud change the topic name under pointcloud2 to /pointcloud
 
 To see detected planes change the topic name under pointcloud2 to /detected_planes
 
+<<<<<<< HEAD
 ## Watch the Video
 
 [![Watch the video](https://img.youtube.com/vi/lce0nvfPICo/0.jpg)](https://youtu.be/lce0nvfPICo?si=43Ronj9vu1_F6V7A)
 
 
+=======
+>>>>>>> fecb18e... added documentation to work with octomap
 ## Using Ros2 bag file created from Unreal engine 
 
 ## Prerequisites
@@ -78,6 +81,7 @@ To see detected planes change the topic name under pointcloud2 to /detected_plan
 ros2 bag play my_bag or ros2 bag play /path_to_bag_file
 ```
 
+<<<<<<< HEAD
 2 Launch rviz2
   rviz2 -d /path_to/rosbag.rviz file 
   rosbag.rviz is located at rviz_config
@@ -87,6 +91,8 @@ ros2 bag play my_bag or ros2 bag play /path_to_bag_file
   To see detected planes change the topic name under pointcloud2 to /detected_planes and change fixed frame into map
 
 
+=======
+>>>>>>> fecb18e... added documentation to work with octomap
 ## Plane Detection Methods
 
 You can apply different plane detection methods to the published point cloud using the pointcloud_plane_detection package.
