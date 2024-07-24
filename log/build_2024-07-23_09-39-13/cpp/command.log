@@ -1,4 +1,0 @@
-Invoking command in '/home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/cpp': /usr/bin/cmake /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/src/cpp -DCMAKE_INSTALL_PREFIX=/home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/cpp
-Invoked command in '/home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/cpp' returned '0': /usr/bin/cmake /home/airsim_user/Downloads/Landing-Assist-Module-LAM/ros2/src/cpp -DCMAKE_INSTALL_PREFIX=/home/airsim_user/Downloads/Landing-Assist-Module-LAM/install/cpp
-Invoking command in '/home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/cpp': /usr/bin/cmake --build /home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/cpp -- -j16 -l16
-Invoked command in '/home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/cpp' returned '0': /usr/bin/cmake --build /home/airsim_user/Downloads/Landing-Assist-Module-LAM/build/cpp -- -j16 -l16
