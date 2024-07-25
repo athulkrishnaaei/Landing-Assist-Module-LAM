@@ -152,7 +152,11 @@ colcon build --symlink-install --packages-select octomap_server2
 Then build the whole package by going to ros2 by ignoring octomap_server2
 
 ```bash
+<<<<<<< HEAD
 colcon build --symlink-install --packages-ignore octomap_server2
+=======
+colcon build --packages-ignore octomap_msgs octomap_server2
+>>>>>>> 3067bdd... tested octomap_server2 package using vcs import
 ```
 ## With this package we can generate PCD version of map from the live lidar data which is published from airsim or we can generate it from by playing a rosbag file 
 
