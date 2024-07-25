@@ -119,6 +119,7 @@ To see detected planed change the topic name under pointcloud2 to /detected_plan
 ## Prerequisites
 With this package we can convert lidar messages into pcd using OCTOMAP package,this package is a modified version of https://github.com/iKrishneel/octomap_server2.git
 
+sudo apt-get install ros-foxy-octomap-msgs
 
 cd ros2/src/octomap_server2
 
@@ -129,15 +130,16 @@ vcs import . < deps.repos
 ```
 
 #### Building
+cd ros2/src
 Use colcon to build the workspace
 ```bash
-colcon build --symlink-install --packages-select octomap_msgs octomap_server2
+colcon build --symlink-install --packages-select octomap_server2
 ```
 
 Then build the whole package by going to ros2 by ignoring octomap_msgs and octomap_server2
 
 ```bash
-colcon build --packages-ignore octomap_msgs octomap_server octomap_mapping
+colcon build --packages-ignore octomap_msgs octomap_server2
 ```
 ## With this package we can generate PCD version of map from the live lidar data which is published from airsim or we can generate it from by playing a rosbag file 
 
@@ -168,6 +170,11 @@ ros2 bag play my_bag or ros2 bag play /path_to_bag_file
 
 ```bash
 ros2 run octomap_server2 octomap_saver_node --ros-args -p full:=false -p octomap_path:='map.bt'
+```
+or with launch file 
+
+```bash
+ros2 launch octomap_server2 octomap_saver_launch.py 
 ```
 
 5. Converting .bt file into PCD
