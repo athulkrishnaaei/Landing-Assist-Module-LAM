@@ -121,7 +121,7 @@ With this package we can convert lidar messages into pcd using OCTOMAP package,t
 
 sudo apt-get install ros-foxy-octomap-msgs
 
-cd ros2/src/octomap_server2
+cd ros2/src/
 
 Clone the dependency repositories to the workspace
 ```bash
@@ -136,7 +136,7 @@ Use colcon to build the workspace
 colcon build --symlink-install --packages-select octomap_server2
 ```
 
-Then build the whole package by going to ros2 by ignoring octomap_msgs and octomap_server2
+Then build the whole package by going to ros2 by ignoring octomap_server2
 
 ```bash
 colcon build --packages-ignore octomap_msgs octomap_server2
