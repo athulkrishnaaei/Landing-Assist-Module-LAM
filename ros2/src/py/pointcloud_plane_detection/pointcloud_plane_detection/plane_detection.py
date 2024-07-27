@@ -218,7 +218,7 @@ class PlaneDetectionNode(Node):
             inlier_cloud = self.detect_planar_patches(o3d_cloud)
 
         # Publish the inlier points as a new point cloud
-        self.publish_pointcloud(inlier_cloud)
+        self.publish_pointcloud_colored(inlier_cloud)
 
     def ransac_plane_segmentation(self, cloud):
         self.get_logger().info(f'Running ransac plane segmentation')
@@ -381,7 +381,54 @@ class PlaneDetectionNode(Node):
 
         # Publish the PointCloud2 message
         self.publisher_.publish(pointcloud_msg)
+    
+    def publish_pointcloud_colored(self, cloud):
+        # Convert Open3D point cloud to ROS PointCloud2 message
+        points = np.asarray(cloud.points)
+        num_points = points.shape[0]
 
+        # Set all points to green color (0, 255, 0)
+        r = 0
+        g = 255
+        b = 0
+        rgb = (r << 16) | (g << 8) | b
+        rgb_packed = struct.unpack('f', struct.pack('I', rgb))[0]
+
+        header = Header()
+        header.stamp = self.get_clock().now().to_msg()
+        header.frame_id = 'map'
+
+        fields = [
+            PointField(name='x', offset=0, datatype=PointField.FLOAT32, count=1),
+            PointField(name='y', offset=4, datatype=PointField.FLOAT32, count=1),
+            PointField(name='z', offset=8, datatype=PointField.FLOAT32, count=1),
+            PointField(name='rgb', offset=12, datatype=PointField.FLOAT32, count=1),
+        ]
+
+        data = []
+        for point in points:
+            data.extend(struct.unpack('f', struct.pack('f', point[0])))
+            data.extend(struct.unpack('f', struct.pack('f', point[1])))
+            data.extend(struct.unpack('f', struct.pack('f', point[2])))
+            data.extend(struct.unpack('f', struct.pack('f', rgb_packed)))
+
+        data = struct.pack('%sf' % len(data), *data)
+
+        pointcloud_msg = PointCloud2(
+            header=header,
+            height=1,
+            width=num_points,
+            fields=fields,
+            is_bigendian=False,
+            point_step=16,
+            row_step=16 * num_points,
+            data=data,
+            is_dense=True
+        )
+
+    # Publish the PointCloud2 message
+        self.publisher_.publish(pointcloud_msg)
+       
 def main(args=None):
     rclpy.init(args=args)
     node = PlaneDetectionNode()

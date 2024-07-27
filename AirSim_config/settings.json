@@ -3,7 +3,7 @@
   "SettingsVersion": 1.2,
   "SimMode": "Multirotor",
   "ViewMode": "SpringArmChase",
-  "ClockSpeed": 1,
+  "ClockSpeed": 1.0,
   "ClockType": "SteppableClock",
   "Vehicles": {
     "PX4": {
