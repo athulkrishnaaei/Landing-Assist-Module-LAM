@@ -3,7 +3,12 @@
   "SettingsVersion": 1.2,
   "SimMode": "Multirotor",
   "ViewMode": "SpringArmChase",
+<<<<<<< HEAD
   "ClockSpeed": 1,
+=======
+  "ClockSpeed": 1.0,
+  "ClockType": "SteppableClock",
+>>>>>>> 5399ddf... added green color to detected plane points
   "Vehicles": {
     "drone_1": {
       "VehicleType": "SimpleFlight",
