@@ -295,23 +295,44 @@ class PlaneDetectionNode(Node):
         return np.append(normal, d)
 
     def detect_planar_patches(self, cloud):
-        self.get_logger().info(f'Running planar patch segmentation')
-        # Estimate normals for the point cloud
-        cloud.estimate_normals(search_param=o3d.geometry.KDTreeSearchParamHybrid(radius=0.1, max_nn=30))
+        print('Running planar patch segmentation')
 
-        # DBSCAN clustering
-        labels = np.array(cloud.cluster_dbscan(eps=0.02, min_points=10, print_progress=True))
+        if not isinstance(cloud, o3d.geometry.PointCloud):
+            print("The provided object is not a PointCloud.")
+            return None
+
+        if cloud.is_empty():
+            print("The provided cloud is empty.")
+            return None
+
+        # Ensure the cloud has points
+        if len(cloud.points) == 0:
+            print("The provided cloud has no points.")
+            return None
+
+        # Estimate normals to assist with the segmentation
+        cloud.estimate_normals(search_param=o3d.geometry.KDTreeSearchParamHybrid(radius=0.1, max_nn=30))
+    
+        # DBSCAN clustering to identify clusters
+        labels = np.array(cloud.cluster_dbscan(eps=0.05, min_points=1, print_progress=True))
+
+        if labels.size == 0 or labels.max() < 0:
+            print("No clusters found by DBSCAN.")
+            return None
 
         max_label = labels.max()
-        print(f"point cloud has {max_label + 1} clusters")
+        print(f"Point cloud has {max_label + 1} clusters")
 
-        planes = o3d.geometry.PointCloud()
+        # Initialize an empty PointCloud to hold all inliers
+        inlier_cloud = o3d.geometry.PointCloud()
+
         for i in range(max_label + 1):
             indices = np.where(labels == i)[0]
-            if len(indices) > 100:  # example threshold for minimum points in a plane
-                planes += cloud.select_by_index(indices)
+            if len(indices) > 50:  # Threshold for a minimum number of points in a plane
+                # Add points that belong to this plane to the inlier cloud
+                inlier_cloud += cloud.select_by_index(indices)
 
-        return planes
+        return inlier_cloud
 
     def segment_plane_PROSAC(self, pcd, quality_scores_normalized, ransac_n=3, num_iterations=1000, distance_threshold=0.01):
         points = np.asarray(pcd.points)
