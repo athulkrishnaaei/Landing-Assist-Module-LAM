@@ -1,0 +1,55 @@
+# Ignore build and install directories
+ros2/build/
+ros2/install/
+ros2/log/
+ros2/install_isolated/
+ros2/build_isolated/
+ros2/devel_isolated/
+ros2/devel/
+ros2/log/
+ros2/airsim_ros
+ros2/src/octomap_server2
+
+
+
+
+#Ignore build files of octomap_server2 and octomap_msgs
+ros2/src/build/
+ros2/src/install/
+ros2/src/log/
+ros2/src/install_isolated/
+ros2/src/build_isolated/
+ros2/src/devel_isolated/
+ros2/src/devel/
+ros2/src/log/
+ros2/src/octomap_msgs
+ros2/src/octomap_server2
+ros2/src/pcl_msgs
+ros2/src/perception_pcl
+
+!ros2/src/deps.repos
+
+# Ignore ROS2 package-specific build directories
+ros2/*/build/
+ros2/*/install/
+ros2/*/log/
+ros2/*/install_isolated/
+ros2/*/build_isolated/
+ros2/*/devel_isolated/
+ros2/*/devel/
+ros2/*/log/
+
+# Ignore other common files and directories
+ros2/.DS_Store
+ros2/*.pyc
+ros2/*.pyo
+ros2/*.out
+ros2/*.log
+ros2/.vscode/
+ros2/.idea/
+
+# Ignore submodule repos
+ros2/octomap_msgs
+ros2/octomap_server2
+ros2/pcl_msgs
+ros2/perception_pcl
