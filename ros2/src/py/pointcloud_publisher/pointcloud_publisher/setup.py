@@ -21,12 +21,7 @@ setup(
     entry_points={
         'console_scripts': [
             'pointcloud_publisher = pointcloud_publisher.pointcloud_publisher:main',
-<<<<<<< HEAD
-            'pointcloud_subscriber = pointcloud_publisher.pointcloud_subscriber:main',
-            'planar_patch_plane_detection = pointcloud_publisher.planar_patch_plane_detection:main',
-=======
             'pointcloud_subscriber = pointcloud_publisher.pointcloud_subscriber:main'
->>>>>>> 160ae3d8418f160da1c5bd9e7cc71f48dd9fa164
         ],
     },
 )

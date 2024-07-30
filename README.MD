@@ -216,7 +216,7 @@ ros2 run my_octomap_converter pcd_to_octomap /path_to/map3.pcd /path_to/map.bt
 ## Watch the Video
 
 [![Creating pcd from rosbag file using octomap](https://img.youtube.com/vi/cDaW_hDrfdA/0.jpg)](https://youtu.be/cDaW_hDrfdA?si=w2jpNsvu7kT7NY4G)
->>>>>>> 1d7319e... added tutorial video to the documentation
+
 
 ## Watch the Video
 

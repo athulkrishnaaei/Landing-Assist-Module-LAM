@@ -218,7 +218,7 @@ class PlaneDetectionNode(Node):
             inlier_cloud = self.detect_planar_patches(o3d_cloud)
 
         # Publish the inlier points as a new point cloud
-        self.publish_pointcloud_colored(inlier_cloud)
+        self.publish_pointcloud(inlier_cloud)
 
     def ransac_plane_segmentation(self, cloud):
         self.get_logger().info(f'Running ransac plane segmentation')
