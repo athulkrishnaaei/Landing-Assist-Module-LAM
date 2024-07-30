@@ -160,6 +160,10 @@ Download the example ros bag file from [here] https://drive.google.com/drive/fol
 
 1. Launch octomap server
 
+
+cd ros2/src
+source install/setup.bash 
+
 cd ros2
 source install/setup.bash 
 
@@ -194,6 +198,13 @@ ros2 launch octomap_server2 octomap_saver_launch.py
 ros2 run my_octomap_converter octomap_to_pcd /path_to/map3.bt /path_to/map.pcd 
 ```
 
+## If you want to convert a pcd file into .bt file 
+
+Converting .pcd file into .bt
+
+```bash
+ros2 run my_octomap_converter pcd_to_octomap /path_to/map3.pcd /path_to/map.bt 
+```
 
 ## Watch the Video
 
