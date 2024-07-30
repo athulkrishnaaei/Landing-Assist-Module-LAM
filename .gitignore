@@ -7,6 +7,9 @@ ros2/build_isolated/
 ros2/devel_isolated/
 ros2/devel/
 ros2/log/
+ros2/airsim_ros
+ros2/src/octomap_server2
+
 
 
 

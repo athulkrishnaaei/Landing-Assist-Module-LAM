@@ -146,7 +146,7 @@ colcon build --symlink-install --packages-select octomap_server2
 Then build the whole package by going to ros2 by ignoring octomap_server2
 
 ```bash
-colcon build --symlink-install --packages-ignore octomap_server2
+colcon build --symlink-install --packages-ignore octomap_server2 airsim_ros
 ```
 ## With this package we can generate PCD version of map from the live lidar data which is published from airsim or we can generate it from by playing a rosbag file 
 
@@ -225,15 +225,30 @@ sudo docker run --name uav --rm -it --privileged -e DISPLAY=$DISPLAY -e XAUTHORI
     2. ./AbandonedPark.sh -windowed -ResX=1080 -ResY=720 --no-border
 
 3. Launch airsim node
-    cd /workspace/AirSim/ros2
+    if you have used vcs import . < deps.repos command before airsim_ros package will be downloaded to src file if not you can 
+
+    ```bash
+    git clone https://github.com/athulkrishnaaei/airsim_ros.git 
+    ```
+    to the  src folder 
+
+    ## Install Airsim
+    cd src/airsim_ros/
+    ./setup.sh
+    ./build.sh
+
+    ## Launch airsim node 
+    cd src/airsim_ros/ros2
+    colcon build
     source install/setup.bash
     
     ros2 launch airsim_ros_pkgs airsim_node.launch.py 
 
 4. Move the drone in square path 
 
-   1. cd  /workspace/AirSim/PythonClient/multirotor
+   1. cd src/ros2/airsim_ros/PythonClient/LAM
    2. python3 drone_square_path.py
+
    Now the drone will move in square path and publish the lidar data
 
 Now you have live lidar data being published 
