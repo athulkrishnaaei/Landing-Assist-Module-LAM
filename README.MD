@@ -146,15 +146,7 @@ colcon build --symlink-install --packages-select octomap_server2
 Then build the whole package by going to ros2 by ignoring octomap_server2
 
 ```bash
-<<<<<<< HEAD
-<<<<<<< HEAD
 colcon build --symlink-install --packages-ignore octomap_server2
-=======
-colcon build --packages-ignore octomap_msgs octomap_server2
->>>>>>> 3067bdd... tested octomap_server2 package using vcs import
-=======
-colcon build --symlink-install --packages-ignore octomap_server2
->>>>>>> 5399ddf... added green color to detected plane points
 ```
 ## With this package we can generate PCD version of map from the live lidar data which is published from airsim or we can generate it from by playing a rosbag file 
 
@@ -177,13 +169,9 @@ ros2 launch octomap_server2 octomap_server_launch.py
 ```
 2. Launch rviz2
    octomap.rviz file is in rviz_config folder
-<<<<<<< HEAD
+
    rviz2 -d /path_to/octomap.rviz file 
    
-=======
-   rviz2 -d /path_to_octomap.rviz file 
-   rviz2
->>>>>>> 5399ddf... added green color to detected plane points
 
 3. cd my_bag
 
@@ -208,6 +196,7 @@ ros2 launch octomap_server2 octomap_saver_launch.py
 ros2 run my_octomap_converter octomap_to_pcd /path_to/map3.bt /path_to/map.pcd 
 ```
 
+
 ## If you want to convert a pcd file into .bt file 
 
 Converting .pcd file into .bt
@@ -215,6 +204,12 @@ Converting .pcd file into .bt
 ```bash
 ros2 run my_octomap_converter pcd_to_octomap /path_to/map3.pcd /path_to/map.bt 
 ```
+
+
+## Watch the Video
+
+[![Creating pcd from rosbag file using octomap](https://img.youtube.com/vi/cDaW_hDrfdA/0.jpg)](https://youtu.be/cDaW_hDrfdA?si=w2jpNsvu7kT7NY4G)
+>>>>>>> 1d7319e... added tutorial video to the documentation
 
 ## Watch the Video
 
