@@ -57,6 +57,11 @@ To see the pointcloud change the topic name under pointcloud2 to /pointcloud
 
 To see detected planes change the topic name under pointcloud2 to /detected_planes
 
+## Watch the Video
+
+[![Watch the video](https://img.youtube.com/vi/lce0nvfPICo/0.jpg)](https://youtu.be/lce0nvfPICo?si=43Ronj9vu1_F6V7A)
+
+
 ## Using Ros2 bag file created from Unreal engine 
 
 ## Prerequisites
@@ -72,6 +77,10 @@ To see detected planes change the topic name under pointcloud2 to /detected_plan
 ```bash
 ros2 bag play my_bag or ros2 bag play /path_to_bag_file
 ```
+
+2 Launch rviz2
+  rviz2 -d /path_to/rosbag.rviz file 
+  rosbag.rviz is located at rviz_config
 
 ## Plane Detection Methods
 
@@ -106,13 +115,14 @@ ros2 run pointcloud_plane_detection plane_detection --ros-args -p method:=planar
 ```
 
 ## 4 Launch rviz
-rviz2 -d /path_to_default.rviz file 
-default.rviz is located at pointcloud_plane_detection/config/
+rviz2 -d /path_to/planeDetection.rviz file 
+planeDetection.rviz is located at rviz_config
 
 To see pointcloud change the topic name under pointcloud2 to /airsim_node/PX4/lidar/Lidar1 and change fixed frame to world_ned
 
 To see detected planed change the topic name under pointcloud2 to /detected_planes and change fixed frame into map
 
+[![Applying plane detection with rosbag file](https://img.youtube.com/vi/XihAnF-MoZY/0.jpg)](https://youtu.be/XihAnF-MoZY?si=Vi4I29JDdzPJ1LcO)
 
 ## Saving Lidar Data As a map
 
@@ -125,9 +135,9 @@ cd ros2/src/
 
 Clone the dependency repositories to the workspace
 ```bash
-# will clone octomap_msgs to the workspace
 vcs import . < deps.repos
 ```
+will clone octomap_msgs to the workspace
 
 #### Building
 cd ros2/src
@@ -158,7 +168,7 @@ ros2 launch octomap_server2 octomap_server_launch.py
 ```
 2. Launch rviz2
    octomap.rviz file is in rviz_config folder
-   rviz2 -d /path_to_octomap.rviz file 
+   rviz2 -d /path_to/octomap.rviz file 
    rviz2
 
 3. cd my_bag
@@ -184,11 +194,10 @@ ros2 launch octomap_server2 octomap_saver_launch.py
 ros2 run my_octomap_converter octomap_to_pcd /path_to/map3.bt /path_to/map.pcd 
 ```
 
-#### Running
-Launch the node with appropriate input on topic `cloud_in`,which is situated in octomap_server_launch.py now it is configured as /airsim_node/PX4/lidar/Lidar1 
-```bash
-ros2 launch octomap_server2 octomap_server_launch.py
-```
+
+## Watch the Video
+
+[![Creating pcd from rosbag file using octomap](https://img.youtube.com/vi/cDaW_hDrfdA/0.jpg)](https://youtu.be/cDaW_hDrfdA?si=w2jpNsvu7kT7NY4G)
 
 ## Creating PCD version of map from live lidar data 
 
