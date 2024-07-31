@@ -158,26 +158,34 @@ colcon build --symlink-install --packages-ignore octomap_server2
 Download the example ros bag file from [here] https://drive.google.com/drive/folders/1BH9uTZXAa8oBXjFqKlQPvcEAp5Yt7zXi?usp=sharing
 
 
-1. Launch octomap server
-
-
-cd ros2/src
-source install/setup.bash 
-
+1. import deps, build and launch octomap_server2:
+- import deps
+```bash
+cd Landing-Assist-Module-LAM/ros2/src/
+vcs import . < path-to/Landing-Assist-Module-LAM/LAM_deps.repos
+```
+- build packages
+```bash
 cd ros2
-source install/setup.bash 
-
+rosdep update
+rosdep install --from-paths src -y --ignore-src
+colcon build
+source /install/setup.bash
+```
+- Launch octomap server
 ```bash
 ros2 launch octomap_server2 octomap_server_launch.py
 ```
-2. Launch rviz2
-   octomap.rviz file is in rviz_config folder
-   rviz2 -d /path_to/octomap.rviz file 
-   rviz2
+2. Launch rviz2, octomap.rviz file is in rviz_config folder
+```bash
+rviz2 -d /path_to/octomap.rviz
 
-3. cd my_bag
+```
+
+3. PLay ros bag
 
 ```bash
+cd my_bag
 ros2 bag play my_bag or ros2 bag play /path_to_bag_file
 ```
 
