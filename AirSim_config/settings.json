@@ -1,0 +1,65 @@
+{
+  "SeeDocsAt": "https://github.com/Microsoft/AirSim/blob/main/docs/settings.md",
+  "SettingsVersion": 1.2,
+  "SimMode": "Multirotor",
+  "ViewMode": "SpringArmChase",
+  "ClockSpeed": 1,
+  "Vehicles": {
+    "drone_1": {
+      "VehicleType": "SimpleFlight",
+      "DefaultVehicleState": "Armed",
+      "EnableCollisionPassthrogh": false,
+      "EnableCollisions": true,
+      "AllowAPIAlways": true,
+      "RC": {
+        "RemoteControlID": 0,
+        "AllowAPIWhenDisconnected": false
+      },
+      "Sensors": {
+        "Imu" : {
+          "SensorType": 2,
+          "Enabled": true
+        }
+      },
+      "Cameras": {
+        "bottom_center_custom": {
+          "CaptureSettings": [
+            {
+              "PublishToRos": 1,
+              "ImageType": 0,
+              "Width": 1920,
+              "Height": 1080,
+              "FOV_Degrees": 90,
+              "TargetGamma": 0
+            }
+          ],
+          "X": 0.50, "Y": 0.0, "Z": 0.10,
+          "Pitch": -90.0, "Roll": 0.0, "Yaw": 0.0
+        },
+        "bottom_center_depth_custom": {
+          "CaptureSettings": [
+            {
+              "PublishToRos": 1,
+              "ImageType": 2,
+              "PixelsAsFloat": true,
+              "Width": 1920,
+              "Height": 1080,
+              "FOV_Degrees": 90,
+              "TargetGamma": 0
+
+            }
+          ],
+          "X": 0.50, "Y": 0, "Z": 0.10,
+          "Pitch": -90.0, "Roll": 0.0, "Yaw": 0.0
+        }
+
+      },
+      "X": 2, "Y": 0, "Z": 0,
+      "Pitch": 0, "Roll": 0, "Yaw": 0
+    }
+  },
+  "SubWindows": [
+    {"WindowID": 0, "ImageType": 0, "CameraName": "bottom_center_custom", "Visible": true},
+    {"WindowID": 2, "ImageType": 3, "CameraName": "bottom_center_depth_custom", "Visible": true}
+      ]
+}
