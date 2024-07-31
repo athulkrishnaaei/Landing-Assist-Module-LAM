@@ -1,8 +1,4 @@
 repositories:
-  octomap_server2:
-    type: git
-    url: https://github.com/athulkrishnaaei/octomap_server2.git
-    version: develop
   airsim_ros:
     type: git
     url: https://github.com/athulkrishnaaei/airsim_ros.git
