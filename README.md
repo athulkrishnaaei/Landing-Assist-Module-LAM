@@ -50,8 +50,8 @@ To apply the PLANAR PATCH method:
 ros2 run pointcloud_plane_detection plane_detection --ros-args -p method:=planar_patch
 ```
 ## 4 Launch rviz
-rviz2 -d /path_to_defaul.rviz file 
-default.rviz is located at pointcloud_plane_detection/config/default.rviz
+rviz2 -d /path_to/planeDetection.rviz file 
+planeDetection.rviz is located at rviz_config/planeDetection.rviz
 
 To see the pointcloud change the topic name under pointcloud2 to /pointcloud
 
@@ -106,8 +106,8 @@ ros2 run pointcloud_plane_detection plane_detection --ros-args -p method:=planar
 ```
 
 ## 4 Launch rviz
-rviz2 -d /path_to_default.rviz file 
-default.rviz is located at pointcloud_plane_detection/config/
+rviz2 -d /path_to/planeDetection.rviz file 
+planeDetection.rviz is located at rviz_config
 
 To see pointcloud change the topic name under pointcloud2 to /airsim_node/PX4/lidar/Lidar1 and change fixed frame to world_ned
 

@@ -11,7 +11,7 @@ import struct
 from sensor_msgs.msg import PointCloud2, PointField
 from std_msgs.msg import Header
 import argparse
-
+import logging
 # Abstract Model class
 class Model(ABC):
     @abstractmethod
@@ -203,6 +203,7 @@ class PlaneDetectionNode(Node):
 
     def pointcloud_callback(self, msg):
         self.get_logger().info('Received point cloud data')
+        print("open 3d version"+o3d.__version__)
         # Convert ROS PointCloud2 message to numpy array
         points = self.pointcloud2_to_numpy(msg)
 
@@ -212,13 +213,14 @@ class PlaneDetectionNode(Node):
 
         if self.method == "prosac":
             inlier_cloud = self.prosac_plane_segmentation(o3d_cloud)
+            self.publish_pointcloud(inlier_cloud)
         elif self.method == "ransac":
             inlier_cloud = self.ransac_plane_segmentation(o3d_cloud)
+            self.publish_pointcloud_colored(inlier_cloud)
         elif self.method == "planar_patch":
-            inlier_cloud = self.detect_planar_patches(o3d_cloud)
-
+            inlier_cloud=self.planar_patch_detection(o3d_cloud)
+            self.publish_pointcloud_colored(inlier_cloud)
         # Publish the inlier points as a new point cloud
-        self.publish_pointcloud_colored(inlier_cloud)
 
     def ransac_plane_segmentation(self, cloud):
         self.get_logger().info(f'Running ransac plane segmentation')
@@ -227,6 +229,8 @@ class PlaneDetectionNode(Node):
                                                    ransac_n=3,
                                                    num_iterations=1000)
         inlier_cloud = cloud.select_by_index(inliers)
+        print("inliner cloud")
+        print(inlier_cloud)
         return inlier_cloud
 
     def prosac_plane_segmentation(self, cloud):
@@ -294,44 +298,68 @@ class PlaneDetectionNode(Node):
         d = -np.dot(normal, centroid)
         return np.append(normal, d)
 
-    def detect_planar_patches(self, cloud):
-        print('Running planar patch segmentation')
+    def planar_patch_detection(self,point_cloud, radius=0.1, angle_threshold=30.0, distance_threshold=0.1):
+        """
+            Detects planar patches in a point cloud using Open3D.
 
-        if not isinstance(cloud, o3d.geometry.PointCloud):
-            print("The provided object is not a PointCloud.")
-            return None
+            Parameters:
+            - normal_variance_threshold_deg (float): Controls the variance allowed among point normals within a plane.
+            - Lower Values: Require normals to be more aligned, resulting in fewer, higher-quality planes.
+            - Higher Values: Allow more variance, potentially detecting more planes but with lower precision.
 
-        if cloud.is_empty():
-            print("The provided cloud is empty.")
-            return None
+            - coplanarity_deg (float): Specifies the allowed spread of point distances from the fitted plane.
+            - Lower Values: Enforce a tighter distribution of points around the plane, improving accuracy.
+            - Higher Values: Permit looser point distributions, which may include noise but detect larger areas.
 
-        # Ensure the cloud has points
-        if len(cloud.points) == 0:
-            print("The provided cloud has no points.")
-            return None
+            - outlier_ratio (float): Defines the maximum ratio of outliers allowed in the set of points associated with a plane.
+            - Lower Values: Demand more inlier points, ensuring high-confidence planes.
+            - Higher Values: Allow more outliers, potentially detecting planes in noisy data but risking false positives.
 
-        # Estimate normals to assist with the segmentation
-        cloud.estimate_normals(search_param=o3d.geometry.KDTreeSearchParamHybrid(radius=0.1, max_nn=30))
+            - min_plane_edge_length (float): The minimum edge length of a planar patch to be considered valid.
+            - Lower Values: Allow detection of smaller planes.
+            - Higher Values: Filter out smaller planes, focusing only on larger, more significant ones.
+
+            - min_num_points (int): Specifies the minimum number of points required to attempt fitting a plane.
+            - Lower Values: Attempt to fit planes with fewer points, which may increase false detections.
+            - Higher Values: Require more points to fit a plane, reducing noise but potentially missing smaller planes.
+
+            - search_param (KDTreeSearchParamKNN): Specifies the neighborhood search strategy.
+            - Smaller knn Values: Faster computation but may lack local context, affecting accuracy.
+            - Larger knn Values: More accurate neighborhood estimation, improving plane quality at the expense of computation time.
+
+            Returns:
+            - inlier_cloud (PointCloud): A point cloud containing only the detected planar patches.
+        """
+
+        if not point_cloud.has_normals():
+            point_cloud.estimate_normals(search_param=o3d.geometry.KDTreeSearchParamKNN(knn=75))
     
-        # DBSCAN clustering to identify clusters
-        labels = np.array(cloud.cluster_dbscan(eps=0.05, min_points=1, print_progress=True))
+        # Detect planar patches
+        planar_patches =point_cloud.detect_planar_patches(
+            normal_variance_threshold_deg=60, # Ensures normals are fairly aligned
+            coplanarity_deg=75,# Allows moderate point distribution
+            outlier_ratio=0.75,# Balances outlier tolerance
+            min_plane_edge_length=0.0,# Filters out very small planes
+            min_num_points=80,# Requires a reasonable number of points
+            search_param=o3d.geometry.KDTreeSearchParamKNN(knn=75) # Balances computation and accuracy 
+        )
+        print("Detected {} patches".format(len(planar_patches)))
+        # Extract inlier points
+        inlier_indices = []
 
-        if labels.size == 0 or labels.max() < 0:
-            print("No clusters found by DBSCAN.")
-            return None
+        # Convert point cloud to Vector3dVector for compatibility
+        points = np.asarray(point_cloud.points)
+        vector3d = o3d.utility.Vector3dVector(points)
+        
+        for obox in planar_patches:
+            indices = obox.get_point_indices_within_bounding_box(vector3d)
+            inlier_indices.extend(indices)
+            
+        inlier_indices = list(set(inlier_indices))
 
-        max_label = labels.max()
-        print(f"Point cloud has {max_label + 1} clusters")
-
-        # Initialize an empty PointCloud to hold all inliers
-        inlier_cloud = o3d.geometry.PointCloud()
-
-        for i in range(max_label + 1):
-            indices = np.where(labels == i)[0]
-            if len(indices) > 50:  # Threshold for a minimum number of points in a plane
-                # Add points that belong to this plane to the inlier cloud
-                inlier_cloud += cloud.select_by_index(indices)
-
+        # Extract inlier points using indices
+        inlier_cloud = point_cloud.select_by_index(inlier_indices)
+        
         return inlier_cloud
 
     def segment_plane_PROSAC(self, pcd, quality_scores_normalized, ransac_n=3, num_iterations=1000, distance_threshold=0.01):
@@ -373,8 +401,12 @@ class PlaneDetectionNode(Node):
         return cloud
 
     def publish_pointcloud(self, cloud):
+        if cloud is None or len(cloud.points) == 0:
+            print("No points to publish")
+            return  # Early exit if there's nothing to publish
         # Convert Open3D point cloud to ROS PointCloud2 message
         points = np.asarray(cloud.points)
+        # points = np.asarray(cloud.points)
         header = Header()
         header.stamp = self.get_clock().now().to_msg()
         header.frame_id = 'map'
