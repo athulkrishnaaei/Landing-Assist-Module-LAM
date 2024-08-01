@@ -15,15 +15,8 @@ class PointCloudPublisher(Node):
         self.publisher_ = self.create_publisher(PointCloud2, 'pointcloud', 10)
         timer_period = 1.0  # seconds
         self.timer = self.create_timer(timer_period, self.timer_callback)
-<<<<<<< HEAD
-        self.pointcloud_data = self.load_pointcloud_file('/home/athul/Desktop/cloud.pcd')
-        # self.pointcloud_data = self.load_pointcloud_file('/home/athul/Desktop/pcd_files/lamppost.pcd')
-
-
-=======
         self.pointcloud_data = self.load_pointcloud_file(file_path)
         
->>>>>>> 262eef1... added planar patch method as argument
     def load_pointcloud_file(self, file_path):
         # Load the point cloud data
         pcd = o3d.io.read_point_cloud(file_path)
