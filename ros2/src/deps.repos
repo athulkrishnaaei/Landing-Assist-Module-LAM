@@ -3,3 +3,7 @@ repositories:
     type: git
     url: https://github.com/athulkrishnaaei/octomap_server2.git
     version: develop
+  my_octomap_converter:
+    type: git
+    url: https://github.com/athulkrishnaaei/my_octomap_converter.git
+    version: main
