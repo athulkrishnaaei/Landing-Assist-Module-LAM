@@ -1,10 +1,8 @@
 ros__parameters:
   pcd_file_path: "/home/airsim_user/Landing-Assist-Module-LAM/test.pcd"
-  visualize: true
-  final_visualize: true
-  final_result_visualization: "both" # can choose both ,inlier_cloud,outlier_cloud to visualize
   voxel_size: 0.45
   voxel_downsample_pointcloud: true
+  visualize: true
 
 
   # Define the pipeline of processing steps.
@@ -29,20 +27,6 @@ ros__parameters:
         sigma_s: 15
         sigma_r: 0.3
         visualization: "both"
-    - step: "RANSAC_OPEN3D"
-      enabled: true
-      parameters:
-        voxel_size: 0.05
-        distanceThreshold: 1.9
-        ransac_n: 3
-        maxIterations: 1000
-        visualization: "both" 
-    - step: "LeastSquare"
-      enabled: true
-      parameters:
-        voxel_size: 0.05
-        distanceThreshold: 1.85
-        visualization: "both" 
     - step: "PROSAC"
       enabled: true
       parameters:
@@ -64,29 +48,11 @@ ros__parameters:
         distanceThreshold: 1.9
         maxIterations: 200
         visualization: "both"
-    - step: "Average3DGradient"
-      enabled: true
-      parameters:
-        voxelSize: 0.1
-        neighborRadius: 0.5
-        gradientThreshold: 0.15
-        angleThreshold: 10.0
-        visualization: "both"
-    - step: "RegionGrowing"
-      enabled: true
-      parameters:
-        voxelSize: 0.05
-        angleThreshold: 10.0
-        min_cluster_size: 50
-        max_cluster_size: 1000000
-        number_of_neighbours: 30
-        normal_k_search: 50
-        visualization: "both"
     - step: "PCA"
       enabled: true
       parameters:
         voxelSize: 0.1
-        angleThreshold: 30
+        angleThreshold: 15
         k: 20
         visualization: "both"
     - step: "HazarMetrices"

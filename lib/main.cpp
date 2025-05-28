@@ -14,7 +14,7 @@ using PointT = pcl::PointXYZI;
 int main(int argc, char **argv)
 {
 
-    std::string config_file = "/home/airsim_user/Landing-Assist-Module-LAM/lib/config/pipeline2Octree.yaml";
+    std::string config_file = "/home/airsim_user/Landing-Assist-Module-LAM/lib/config/config.yaml";
     // Load YAML configuration.
     YAML::Node config = YAML::LoadFile(config_file);
     YAML::Node params = config["ros__parameters"];
@@ -23,11 +23,9 @@ int main(int argc, char **argv)
 
     std::string pcd_file_path = params["pcd_file_path"].as<std::string>();
 
-    bool g_visualize = params["visualize"].as<bool>();
-    bool final_visualize = params["final_visualize"].as<bool>();
-    bool voxel_downsample_pointcloud = params["voxel_downsample_pointcloud"].as<bool>();
-    std::string final_result_visualization = params["final_result_visualization"].as<std::string>();
     float voxelSize = params["voxel_size"].as<float>();
+    bool voxel_downsample_pointcloud = params["voxel_downsample_pointcloud"].as<bool>();
+    bool visualize = params["visualize"].as<bool>();
 
     // Load input point cloud using the provided loadPCLCloud function.
     PCLResult pclResult;
@@ -87,7 +85,7 @@ int main(int argc, char **argv)
             auto pclResult = convertOpen3DToPCL(result);
             // sor_result = pcl_cloud.inlier_cloud;
 
-            if (g_visualize)
+            if (visualize)
             {
                 visualizePCL(pclResult, visualization);
             }
@@ -100,7 +98,7 @@ int main(int argc, char **argv)
             int min_neighbors = pipeline[i]["parameters"]["min_neighbors"].as<int>();
 
             PCLResult radial_result = applyRadiusFilter(pclResult.inlier_cloud, radius_search, min_neighbors);
-            if (g_visualize)
+            if (visualize)
             {
                 visualizePCL(radial_result);
             }
@@ -114,7 +112,7 @@ int main(int argc, char **argv)
             double sigma_r = pipeline[i]["parameters"]["sigma_r"].as<double>();
 
             PCLResult bilateral_result = applyBilateralFilter(pclResult.inlier_cloud, sigma_s, sigma_r);
-            if (g_visualize)
+            if (visualize)
             {
                 visualizePCL(bilateral_result);
             }
@@ -125,52 +123,7 @@ int main(int argc, char **argv)
             float resolution = pipeline[i]["parameters"]["resolution"].as<float>();
             pclResult.inlier_cloud = create2DGridMap(pclResult.inlier_cloud,resolution);
         }
-        else if (step == "RANSAC_OPEN3D")
-        {
-            float distanceThreshold = pipeline[i]["parameters"]["distanceThreshold"].as<float>();
-            int ransac_n = pipeline[i]["parameters"]["ransac_n"].as<int>();
-            int maxIterations = pipeline[i]["parameters"]["maxIterations"].as<int>();
-            std::string visualization = pipeline[i]["parameters"]["visualization"].as<std::string>();
-
-            // Wrap the current PCL cloud into a temporary PCLResult.
-            PCLResult temp;
-            // temp.inlier_cloud = current_cloud;
-            temp.inlier_cloud = pclResult.inlier_cloud;
-            // Convert to Open3DResult.
-            OPEN3DResult open3d_temp = convertPCLToOpen3D(temp);
-            // Wrap the resulting Open3D cloud (here using the inlier cloud) into a variant.
-            Open3DCloudInput open3d_input = open3d_temp.inlier_cloud;
-            OPEN3DResult ransac_result = RansacPlaneSegmentation(open3d_input, distanceThreshold, ransac_n, maxIterations);
-            PCLResult pcl_cloud = convertOpen3DToPCL(ransac_result);
-            // current_cloud = pcl_cloud.inlier_cloud;
-            pclResult.inlier_cloud = pcl_cloud.inlier_cloud;
         
-            if (g_visualize)
-            {
-                visualizePCL(pcl_cloud, visualization);
-            }
-        }
-        else if (step == "LeastSquare")
-        {
-          
-            float distanceThreshold = pipeline[i]["parameters"]["distanceThreshold"].as<float>();
-            std::string visualization = pipeline[i]["parameters"]["visualization"].as<std::string>();
-
-            PCLResult temp;
-            // temp.inlier_cloud = current_cloud;
-            temp.inlier_cloud = pclResult.inlier_cloud;
-            OPEN3DResult open3d_temp = convertPCLToOpen3D(temp);
-            Open3DCloudInput open3d_input = open3d_temp.inlier_cloud;
-            OPEN3DResult least_square_result = LeastSquaresPlaneFitting(open3d_input, distanceThreshold);
-
-            PCLResult pcl_cloud = convertOpen3DToPCL(least_square_result);
-            pclResult.inlier_cloud = pcl_cloud.inlier_cloud;
-            pclResult.plane_coefficients = pcl_cloud.plane_coefficients;
-            if (g_visualize)
-            {
-                visualizePCL(pcl_cloud, visualization);
-            }
-        }
         else if (step == "PROSAC")
         {
           
@@ -182,7 +135,7 @@ int main(int argc, char **argv)
             pclResult.inlier_cloud = prosac_result.inlier_cloud;
             pclResult.plane_coefficients = prosac_result.plane_coefficients;
             
-            if (g_visualize)
+            if (visualize)
             {
                 visualizePCL(prosac_result, visualization);
             }
@@ -198,7 +151,7 @@ int main(int argc, char **argv)
             pclResult.inlier_cloud = ransac_result.inlier_cloud;
             pclResult.plane_coefficients = ransac_result.plane_coefficients;
             
-            if (g_visualize)
+            if (visualize)
             {
                 visualizePCL(ransac_result, visualization);
             }
@@ -214,64 +167,12 @@ int main(int argc, char **argv)
             pclResult.inlier_cloud = lmeds_result.inlier_cloud;
             pclResult.plane_coefficients = lmeds_result.plane_coefficients;
             
-            if (g_visualize)
+            if (visualize)
             {
                 visualizePCL(lmeds_result, visualization);
             }
         }
-        else if (step == "Average3DGradient")
-        {
-            float neighborRadius = pipeline[i]["parameters"]["neighborRadius"].as<float>();
-            float gradientThreshold = pipeline[i]["parameters"]["gradientThreshold"].as<float>();
-            float angleThreshold = pipeline[i]["parameters"]["angleThreshold"].as<float>();
-            std::string visualization = pipeline[i]["parameters"]["visualization"].as<std::string>();
-
-            PCLResult avgGrad_result = Average3DGradient(pclResult.inlier_cloud, neighborRadius, gradientThreshold, angleThreshold);
-            pclResult.inlier_cloud = avgGrad_result.inlier_cloud;
-            
-            if (g_visualize)
-            {
-                visualizePCL(avgGrad_result, visualization);
-            }
-        }
-        else if (step == "RegionGrowing")
-        {
-            
-            float angleThreshold = pipeline[i]["parameters"]["angleThreshold"].as<float>();
-            int min_cluster_size = pipeline[i]["parameters"]["min_cluster_size"].as<int>();
-            int max_cluster_size = pipeline[i]["parameters"]["max_cluster_size"].as<int>();
-            int number_of_neighbours = pipeline[i]["parameters"]["number_of_neighbours"].as<int>();
-            int normal_k_search = pipeline[i]["parameters"]["normal_k_search"].as<int>();
-            std::string visualization = pipeline[i]["parameters"]["visualization"].as<std::string>();
-
-            PCLResult regionGrowingResult = regionGrowingSegmentation(pclResult.inlier_cloud, angleThreshold, min_cluster_size, max_cluster_size, number_of_neighbours, normal_k_search);
-            pclResult.inlier_cloud = regionGrowingResult.inlier_cloud;
-            if (g_visualize)
-            {
-                visualizePCL(regionGrowingResult, visualization);
-            }
-        }
-        else if (step == "RegionGrowing2")
-        {
-            
-            float angleThreshold = pipeline[i]["parameters"]["angleThreshold"].as<float>();
-            int min_cluster_size = pipeline[i]["parameters"]["min_cluster_size"].as<int>();
-            int max_cluster_size = pipeline[i]["parameters"]["max_cluster_size"].as<int>();
-            int number_of_neighbours = pipeline[i]["parameters"]["number_of_neighbours"].as<int>();
-            int normal_k_search = pipeline[i]["parameters"]["normal_k_search"].as<int>();
-            float curvature_threshold = pipeline[i]["parameters"]["curvature_threshold"].as<float>();
-            float height_threshold = pipeline[i]["parameters"]["height_threshold"].as<float>();
-
-            std::string visualization = pipeline[i]["parameters"]["visualization"].as<std::string>();
-
-            PCLResult regionGrowingResult = regionGrowingSegmentation2(pclResult.inlier_cloud, angleThreshold, min_cluster_size, max_cluster_size, number_of_neighbours, normal_k_search, curvature_threshold, height_threshold);
-            // PCLResult regionGrowingResult = calculateNormalsAndCurvature(pclResult.inlier_cloud);
-            pclResult.inlier_cloud = regionGrowingResult.inlier_cloud;
-            if (g_visualize)
-            {
-                visualizePCL(regionGrowingResult, visualization);
-            }
-        }
+        
         else if (step == "PCA")
         {
             
@@ -284,29 +185,12 @@ int main(int argc, char **argv)
             pclResult.inlier_cloud = PCA_Result.inlier_cloud;
             pclResult.plane_coefficients = PCA_Result.plane_coefficients;
             
-            if (g_visualize)
+            if (visualize)
             {
                 visualizePCL(PCA_Result, visualization);
             }
         }
-        else if (step == "CheckSLZ-r")
-        {
-            double landingRadius = pipeline[i]["parameters"]["landingRadius"].as<double>();
-            double removalThreshold = pipeline[i]["parameters"]["removalThreshold"].as<double>();
-            double clusterTolerance = pipeline[i]["parameters"]["clusterTolerance"].as<double>();
-            auto environment_cloud = loadPCLCloud<PointT>(pcd_file_path);
-            std::string visualization = pipeline[i]["parameters"]["visualization"].as<std::string>();
-            PCLResult SLZResult = findSafeLandingZones(pclResult.inlier_cloud,
-                                                       environment_cloud,
-                                                       landingRadius,
-                                                       removalThreshold,
-                                                       clusterTolerance);
-            pclResult.inlier_cloud = SLZResult.inlier_cloud;
-            if (g_visualize)
-            {
-                visualizePCL(SLZResult, visualization);
-            }
-        }
+        
         else if (step == "SphericalNeighbourhood")
         {
             auto start = std::chrono::high_resolution_clock::now();
@@ -342,7 +226,7 @@ int main(int argc, char **argv)
     
            
             pclResult.inlier_cloud = result.inlier_cloud;
-            if (g_visualize)
+            if (visualize)
             {
                 // visualizePCL(result, visualization);
                 visualizeRankedCandidatePatches(rankedCandidates, result,textSize);
@@ -358,15 +242,6 @@ int main(int argc, char **argv)
             std::cerr << "Unknown pipeline step: " << step << std::endl;
             return -1;
         }
-    }
-
-    // Final visualization of the chained output.
-    if (g_visualize || final_visualize)
-    {
-        std::cout << "\n--- Final Processed Cloud ---\n";
-
-        final_result.inlier_cloud = pclResult.inlier_cloud;
-        visualizePCL(final_result, final_result_visualization);
     }
 
     return 0;
