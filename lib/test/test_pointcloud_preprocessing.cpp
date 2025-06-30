@@ -16,99 +16,11 @@ bool fileExists(const std::string &path) {
     return f.good();
 }
 
-////////////////////////////////////////////////////////////
-// TESTS for DATA STRUCTURING functions
-////////////////////////////////////////////////////////////
 
-TEST(DataStructuring, Create2DGridMap) {
-    float gridmap_resolution = 0.1f;
-    pcl::PointCloud<pcl::PointXYZI>::Ptr grid_map = create2DGridMap(filePath, gridmap_resolution);
-
-    if (!g_skipVisualization) {
-        // Visualize the segmentation result; press 'q' to close the window.
-        visualize2DGridMap(grid_map);
-    }else{
-        std::cout << "Grid map is null or visualization is skipped." << std::endl;
-    } 
-
-    // Check that the returned pointer is not null and has points.
-    EXPECT_NE(grid_map, nullptr);
-    if(grid_map)
-    {
-        EXPECT_GT(grid_map->size(), 0);
-    }
-}
-
-TEST(DataStructuring, Create3DGridMap) {
-    double voxel_size = 0.01;
-    VoxelGridResult voxelgrid_result = create_3d_grid(filePath, voxel_size);
-
-    if (!g_skipVisualization) {
-        // Visualize the segmentation result; press 'q' to close the window.
-        Visualize3dGridMap(voxelgrid_result.voxel_grid_ptr);
-    } 
-    
-    EXPECT_NE(voxelgrid_result.cloud_ptr, nullptr);
-    EXPECT_NE(voxelgrid_result.voxel_grid_ptr, nullptr);
-    if(voxelgrid_result.cloud_ptr)
-    {
-        EXPECT_GT(voxelgrid_result.cloud_ptr->points_.size(), 0);
-    }
-    if(voxelgrid_result.voxel_grid_ptr)
-    {
-        EXPECT_GT(voxelgrid_result.voxel_grid_ptr->voxels_.size(), 0);
-    }
-}
-
-TEST(DataStructuring, CreateKDTree) {
-    float K = 0.1f;
-    KDTreeResult kdtree_result = create_kdtree(filePath, K);
-    EXPECT_NE(kdtree_result.cloud_ptr, nullptr);
-    EXPECT_NE(kdtree_result.kdtree, nullptr);
-    if(kdtree_result.cloud_ptr)
-    {
-        EXPECT_GT(kdtree_result.cloud_ptr->points_.size(), 0);
-    }
-}
-
-TEST(DataStructuring, CreateOctree) {
-    int max_depth = 10;
-    OctreeResult octree_result = create_octree(filePath, max_depth);
-    EXPECT_NE(octree_result.cloud_ptr, nullptr);
-    EXPECT_NE(octree_result.octree, nullptr);
-    if(octree_result.cloud_ptr)
-    {
-        EXPECT_GT(octree_result.cloud_ptr->points_.size(), 0);
-    }
-}
-
-TEST(DataStructuring, ConvertPointCloudToOctomap) {
-    std::string octomap_filePath = "/home/airsim_user/Landing-Assist-Module-LAM/lib/preprocessing/pointcloud.bt";
-    double octomap_resolution = 0.05;
-    // Call the conversion function.
-    convertPointCloudToOctomap(filePath, octomap_filePath, octomap_resolution);
-    // Check that the octomap file was created.
-    EXPECT_TRUE(fileExists(octomap_filePath));
-}
 
 ////////////////////////////////////////////////////////////
 // TESTS for FILTERING functions
 ////////////////////////////////////////////////////////////
-
-TEST(OPEN3DFiltering, ApplyVoxelGridFilter) {
-    double voxel_downsample_size = 0.15;
-    auto downsampled_cloud = apply_voxel_grid_filter(filePath, voxel_downsample_size);
-    
-    if (!g_skipVisualization) {
-        // Visualize the segmentation result; press 'q' to close the window.
-        VisualizeGeometry(downsampled_cloud);
-    }   
-    EXPECT_NE(downsampled_cloud, nullptr);
-    if(downsampled_cloud)
-    {
-        EXPECT_GT(downsampled_cloud->points_.size(), 0);
-    }
-}
 
 TEST(OPEN3DFiltering, ApplySORFilter) {
     int nb_neighbors = 15;
@@ -129,25 +41,6 @@ TEST(OPEN3DFiltering, ApplySORFilter) {
 
 }
 
-////////////////////////////////////////////////////////////
-// TESTS for PCL-based filtering functions
-////////////////////////////////////////////////////////////
-
-TEST(PCLFiltering, applySORFilterPCL) {
-    // Load original cloud.
-    int meanK = 50;
-    double stddevMulThresh = 1.0;
-    PCLResult result = applySORFilterPCL(filePath, meanK, stddevMulThresh);
-    
-    
-    if (!g_skipVisualization) {
-        // Visualize the segmentation result; press 'q' to close the window.
-        visualizePCL(result);
-    } 
-    
-    // Check that the filtered cloud is not empty.
-    EXPECT_FALSE(result.inlier_cloud->empty());
-}
 
 TEST(PCLFiltering, ApplyRadiusFilter) {
     // Load original cloud.

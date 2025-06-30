@@ -69,7 +69,7 @@ Download from:
 ```bash
 git clone https://github.com/athulkrishnaaei/Landing-Assist-Module-LAM
 cd Landing-Assist-Module-LAM
-git checkout feature/slzd_library
+git checkout feature/slzd_library_verified_algorithms1
 ```
 
 2. **Build the project:**

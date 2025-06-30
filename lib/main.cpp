@@ -6,7 +6,6 @@
 #include "hazard_metrices.h"
 #include "pointcloud_preprocessing.h"
 #include "common.h"
-#include "architecture.h"
 #include <chrono>
 
 using PointT = pcl::PointXYZI;
@@ -119,10 +118,6 @@ int main(int argc, char **argv)
             // current_cloud = bilateral_result.inlier_cloud;
             pclResult.inlier_cloud = bilateral_result.inlier_cloud;
         }
-        else if (step == "2dGridmap"){
-            float resolution = pipeline[i]["parameters"]["resolution"].as<float>();
-            pclResult.inlier_cloud = create2DGridMap(pclResult.inlier_cloud,resolution);
-        }
         
         else if (step == "PROSAC")
         {
@@ -190,49 +185,7 @@ int main(int argc, char **argv)
                 visualizePCL(PCA_Result, visualization);
             }
         }
-        
-        else if (step == "SphericalNeighbourhood")
-        {
-            auto start = std::chrono::high_resolution_clock::now();
 
-            
-            int k = pipeline[i]["parameters"]["k"].as<int>();
-            float angleThreshold = pipeline[i]["parameters"]["angleThreshold"].as<float>();
-            double radius = pipeline[i]["parameters"]["radius"].as<double>();
-            std::string visualization = pipeline[i]["parameters"]["visualization"].as<std::string>();
-            int landingZoneNumber = pipeline[i]["parameters"]["landingZoneNumber"].as<int>();
-            int maxAttempts = pipeline[i]["parameters"]["maxAttempts"].as<int>();
-            float textSize = pipeline[i]["parameters"]["visualization_textSize"].as<float>();
-            
-            PCLResult result;
-    
-            std::vector<SLZDCandidatePoints> candidatePoints;
-            std::tie(result, candidatePoints) =kdtreeNeighbourhoodPCAFilterOMP(pclResult.inlier_cloud,
-                                            radius, k, angleThreshold,
-                                            landingZoneNumber, maxAttempts);
-            
-            
-            // candidatePoints.push_back(finalCandidate);
-            // Add plane coeffiecient to the struct we gonaa pass to calculate roughness
-            result.plane_coefficients = pclResult.plane_coefficients;
-            auto rankedCandidates = rankCandidatePatches(candidatePoints, result);
-           
-             // End the timer
-            auto end = std::chrono::high_resolution_clock::now();
-            // Calculate the elapsed time in seconds (or choose another unit)
-            std::chrono::duration<double> duration = end - start;
-            // Print the elapsed time
-            std::cout << "Elapsed time: " << duration.count() << " seconds" << std::endl;
-    
-           
-            pclResult.inlier_cloud = result.inlier_cloud;
-            if (visualize)
-            {
-                // visualizePCL(result, visualization);
-                visualizeRankedCandidatePatches(rankedCandidates, result,textSize);
-                
-            }
-        }
         else if(step == "HazarMetrices"){
             std::string hazardMetricsName = pipeline[i]["parameters"]["hazard"].as<std::string>();
             auto hazard = rankCandidatePatchFromPCLResult(pclResult, hazardMetricsName);

@@ -1,6 +1,6 @@
 ros__parameters:
   pcd_file_path: "/home/airsim_user/Landing-Assist-Module-LAM/test.pcd"
-  voxel_size: 0.45
+  voxel_size: 0.05
   voxel_downsample_pointcloud: true
   visualize: true
 
@@ -16,42 +16,36 @@ ros__parameters:
     - step: "Radial"
       enabled: false
       parameters:
-        voxel_size: 0.05
         radius_search: 0.9
         min_neighbors: 50
         visualization: "both"
     - step: "Bilateral"
       enabled: false
       parameters:
-        voxel_size: 0.05
         sigma_s: 15
         sigma_r: 0.3
         visualization: "both"
     - step: "PROSAC"
-      enabled: true
+      enabled: false
       parameters:
-        voxel_size: 0.05
         distanceThreshold: 1.9
         maxIterations: 200
         visualization: "both"
     - step: "RANSAC"
-      enabled: true
+      enabled: false
       parameters:
-        voxel_size: 0.05
         distanceThreshold: 1.9
         maxIterations: 200
         visualization: "both"
     - step: "LMEDS"
-      enabled: true
+      enabled: false
       parameters:
-        voxel_size: 0.05
         distanceThreshold: 1.9
         maxIterations: 200
         visualization: "both"
     - step: "PCA"
-      enabled: true
+      enabled: false
       parameters:
-        voxelSize: 0.1
         angleThreshold: 15
         k: 20
         visualization: "both"
